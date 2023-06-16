@@ -1,0 +1,22 @@
+{
+  "name": "test-project-2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "axios": "^1.4.0",
+    "prisma": "^4.15.0"
+  },
+  "dependencies": {
+    "@next-auth/prisma-adapter": "^1.0.7",
+    "debug": "^4.3.4",
+    "next-auth": "^4.22.1",
+    "react-hot-toast": "^2.4.1",
+    "supports-color": "^8.1.1"
+  }
+}
