@@ -1,12 +1,17 @@
 import prisma from '../../libs/prismadb'
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { NextResponse } from 'next/server'
+
+var userEmailVar;
+
 export async function PUT(request) {
   
 const body = await request.json();
+
 const { email , phoneNumber , gamingName } = body;
 
-
+userEmailVar = email;
+console.log(userEmailVar)
   const user = await prisma.user.update({
     where : {
         email : email
@@ -19,7 +24,11 @@ const { email , phoneNumber , gamingName } = body;
 return NextResponse.json(user)
 }
 
-
+export async function userEmail(){
+    var email =  userEmailVar;
+    console.log(userEmailVar)
+    return email;
+}
 //   export const updateduser = await client.user.update({
 //     where : {
 //         email : "mahilpatel6858@gmail.com"

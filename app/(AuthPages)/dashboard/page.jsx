@@ -10,10 +10,10 @@ export default function dashboard() {
 
   const { data:session } = useSession()
   const router = useRouter()
-  console.log(session?.user?.email)
+  // console.log(session?.user?.email)
   const anotherSession = useSession()
 
-  console.log(anotherSession?.status)
+  // console.log(anotherSession?.status)
   useEffect(() => {
     if (anotherSession?.status === 'unauthenticated') {
        router.push('/') 

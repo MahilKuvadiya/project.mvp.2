@@ -9,7 +9,7 @@ const page = () => {
 
     <>
     
-    <User/>
+    {/* <User/> */}
     
     </>
   )
