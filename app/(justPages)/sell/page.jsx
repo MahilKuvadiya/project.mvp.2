@@ -43,6 +43,9 @@ const CreateBlog = () => {
 
     try {
       const imageUrl = await uploadImage();
+      if(!imageUrl){
+        return;
+      }
       const videoUrl = await uploadVideo();
 
       const email = session?.user?.email;
@@ -114,10 +117,10 @@ const CreateBlog = () => {
 
     if (images.length < 3) {
       toast.error("Please upload atleast 3 images.")
-      return [];
-    } else if (images.length > 4) {
+      return;
+    } else if (images.length > 5) {
       toast.error("Maximum 5 Images are allowed.")
-      return [];
+      return;
     }
 
     const imageUrls = [];
