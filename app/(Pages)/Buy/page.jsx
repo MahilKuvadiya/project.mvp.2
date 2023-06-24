@@ -1,100 +1,116 @@
+'use client'
 import React from 'react'
+import { useEffect, useState } from 'react'
+import './Buy.css'
 const Buy = () => {
+  const [color, setColor] = useState('blue')
+  useEffect(() => setColor('red'), [])
     return(
-      <div className='container mx-auto px-4'>
-   <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap -m-4">
-      <div class="p-4 md:w-1/3">
-        <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"/>
-          <div class="p-6">
-            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The Catalyzer</h1>
-            <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <div class="flex items-center flex-wrap ">
-              <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-              <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>1.2K
-              </span>
-              <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                </svg>6
-              </span>
-            </div>
-          </div>
-        </div>
+      <div>
+        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'></script>
+        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"/>
+        <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"></link>
+
+   <div className="container-fluid d-flex justify-content-center">
+  <div className="row mt-5" style={{justifyContent:'center'}}>
+    <div className="col-sm-4" style={{maxWidth:'480px'}}>
+      <div className="card">
+    <img src="assets/BGMI.webp" className="card-img-top" width="100%"/>
+    <div className="card-body pt-0 px-0">
+      <div className="d-flex flex-row justify-content-between mb-0 px-3">
+        <small className="text-muted mt-1">STARTING AT</small>
+        <h6>&#8377;22,495&#x2a;</h6>
       </div>
-      <div class="p-4 md:w-1/3">
-        <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/721x401" alt="blog"/>
-          <div class="p-6">
-            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The 400 Blows</h1>
-            <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <div class="flex items-center flex-wrap">
-              <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-              <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>1.2K
-              </span>
-              <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                </svg>6
-              </span>
-            </div>
-          </div>
-        </div>
+      <hr className="mt-2 mx-3"/>
+      <div className="d-flex flex-row justify-content-between px-3 pb-4">
+        <div className="d-flex flex-column"><span className="text-muted">Rating</span><small className="text-muted">USER&#x2a;</small></div>
+        <div className="d-flex flex-column"><h5 className="mb-0"><input data-role="rating" data-value="3" /></h5><small className="text-muted text-right" >(3856)</small></div>
       </div>
-      <div class="p-4 md:w-1/3">
-        <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/722x402" alt="blog"/>
-          <div class="p-6">
-            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
-            <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <div class="flex items-center flex-wrap ">
-              <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-              <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>1.2K
-              </span>
-              <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                </svg>6
-              </span>
-            </div>
-          </div>
-        </div>
+      <div className="d-flex flex-row justify-content-between p-3 mid">
+        <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px"/><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
+        <div className="d-flex flex-column"><small className="text-muted mb-2">Special</small><div className="d-flex flex-row"><img src="assets/gift.png" width="25px" height="25px"/><h6 className="ml-1">Glacier Skin&#x2a;</h6></div></div>
       </div>
+      <small className="text-muted key pl-3">Standard key Features</small>
+      <div className="mx-3 mt-3 mb-2"><button type="button" className="btn btn-danger btn-block" style={{ width:'100%'}}><small>BUY NOW</small></button></div>
+      <small className="d-flex justify-content-center text-muted">*Legal Disclaimer</small>
     </div>
   </div>
-</section>
+    </div>
+    <div className="col-sm-4" style={{maxWidth:'480px'}}>
+      <div className="card">
+    <img src="assets/BGMI.webp" className="card-img-top" width="100%"/>
+    <div className="card-body pt-0 px-0">
+      <div className="d-flex flex-row justify-content-between mb-0 px-3">
+        <small className="text-muted mt-1">STARTING AT</small>
+        <h6>&#8377;22,495&#x2a;</h6>
+      </div>
+      <hr className="mt-2 mx-3"/>
+      <div className="d-flex flex-row justify-content-between px-3 pb-4">
+        <div className="d-flex flex-column"><span className="text-muted">Rating</span><small className="text-muted">USER&#x2a;</small></div>
+        {/* <div className="d-flex flex-column"><h5 className="mb-0"><input data-role="rating" data-value="3"/></h5><small className="text-muted text-right">(3085)</small></div> */}
+      </div>
+      <div className="d-flex flex-row justify-content-between p-3 mid">
+        <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px"/><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
+        <div className="d-flex flex-column"><small className="text-muted mb-2">Special</small><div className="d-flex flex-row"><img src="assets/gift.png" width="25px" height="25px"/><h6 className="ml-1">Glacier Skin&#x2a;</h6></div></div>
+      </div>
+      <small className="text-muted key pl-3">Standard key Features</small>
+      <div className="mx-3 mt-3 mb-2"><button type="button" className="btn btn-danger btn-block" style={{ width:'100%'}}><small>BUY NOW</small></button></div>
+      <small className="d-flex justify-content-center text-muted">*Legal Disclaimer</small>
+    </div>
+  </div>
+    </div>
+  <div className="col-sm-4" style={{maxWidth:'480px'}}>
+    <div className="card">
+    <img src="assets/BGMI.webp" className="card-img-top" width="100%"/>
+    <div className="card-body pt-0 px-0">
+      <div className="d-flex flex-row justify-content-between mb-0 px-3">
+        <small className="text-muted mt-1">STARTING AT</small>
+        <h6>&#8377;22,495&#x2a;</h6>
+      </div>
+      <hr className="mt-2 mx-3"/>
+      <div className="d-flex flex-row justify-content-between px-3 pb-4">
+        <div className="d-flex flex-column"><span className="text-muted">Rating</span><small className="text-muted">USER&#x2a;</small></div>
+        <div className="d-flex flex-column"><h5 className="mb-0"><input data-role="rating" data-value="3"/></h5><small className="text-muted text-right">(3085)</small></div>
+      </div>
+      <div className="d-flex flex-row justify-content-between p-3 mid">
+        <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px"/><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
+        <div className="d-flex flex-column"><small className="text-muted mb-2">Special</small><div className="d-flex flex-row"><img src="assets/gift.png" width="25px" height="25px"/><h6 className="ml-1">Glacier Skin&#x2a;</h6></div></div>
+      </div>
+      <small className="text-muted key pl-3">Standard key Features</small>
+      <div className="mx-3 mt-3 mb-2"><button type="button" className="btn btn-danger btn-block" style={{ width:'100%'}}><small>BUY NOW</small></button></div>
+      <small className="d-flex justify-content-center text-muted">*Legal Disclaimer</small>
+    </div>
+  </div>
+    </div>
+    <div className="col-sm-4" style={{maxWidth:'480px'}}>
+    <div className="card">
+    <img src="assets/BGMI.webp" className="card-img-top" width="100%"/>
+    <div className="card-body pt-0 px-0">
+      <div className="d-flex flex-row justify-content-between mb-0 px-3">
+        <small className="text-muted mt-1">STARTING AT</small>
+        <h6>&#8377;22,495&#x2a;</h6>
+      </div>
+      <hr className="mt-2 mx-3"/>
+      <div className="d-flex flex-row justify-content-between px-3 pb-4">
+        <div className="d-flex flex-column"><span className="text-muted">Rating</span><small className="text-muted">USER&#x2a;</small></div>
+        <div className="d-flex flex-column"><h5 className="mb-0"><input data-role="rating" data-value="3"/></h5><small className="text-muted text-right">(3085)</small></div>
+      </div>
+      <div className="d-flex flex-row justify-content-between p-3 mid">
+        <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px"/><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
+        <div className="d-flex flex-column"><small className="text-muted mb-2">Special</small><div className="d-flex flex-row"><img src="assets/gift.png" width="25px" height="25px"/><h6 className="ml-1">Glacier Skin&#x2a;</h6></div></div>
+      </div>
+      <small className="text-muted key pl-3">Standard key Features</small>
+      <div className="mx-3 mt-3 mb-2"><button type="button" className="btn btn-danger btn-block" style={{ width:'100%'}}><small>BUY NOW</small></button></div>
+      <small className="d-flex justify-content-center text-muted">*Legal Disclaimer</small>
+    </div>
+  </div>
+    </div>
+  
+  </div>
+</div>
 </div>
 );
 } 

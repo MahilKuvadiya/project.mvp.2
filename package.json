@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "devDependencies": {
+    "@types/node": "20.3.1",
     "@types/react": "18.2.14",
     "axios": "^1.4.0",
     "prisma": "^4.15.0",
