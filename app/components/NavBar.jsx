@@ -10,6 +10,7 @@ const NavBar = () => {
   const { data: session } = useSession()
   return (
     <>
+    <nav>
     {session?.user?(
       <section>
         <button onClick={() => signOut()}>Sign Out</button>
@@ -28,6 +29,7 @@ const NavBar = () => {
     ):(
       <button onClick={() => signIn('google')}>Sign In</button>
     )}
+    </nav>
     </>
   )
 }

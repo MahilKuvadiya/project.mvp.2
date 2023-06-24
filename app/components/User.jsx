@@ -21,8 +21,8 @@ export default function User() {
 
         const response = await axios.post('/api/getUserInfo', data);
         setUser(response.data);
-        console.log("request sent");
-        toast.success("Data fetched.");
+        // console.log("request sent");
+        // toast.success("Data fetched.");
       } catch (error) {
         console.error(error);
       }

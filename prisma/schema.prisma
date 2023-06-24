@@ -44,3 +44,23 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
+
+model GamingAccount {
+  id          String       @id @default(auto())@map("_id") @db.ObjectId
+  title       String
+  accountName String
+  gameName    String
+  price       Int
+  email       String
+  description String
+  image       Json
+  video       String?
+  specialFeature String?
+}
+
+// model Image {
+//   id          String       @id @default(auto())@map("_id") @db.ObjectId
+//   url         String
+//   gamingAccount GamingAccount @relation(fields: [id], references: [id], onDelete: Cascade)
+//   gamingAccountId Int
+// }
