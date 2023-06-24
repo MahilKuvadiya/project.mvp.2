@@ -1,0 +1,148 @@
+ /* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+body{
+    background-color: #10003B !important; 
+}
+@media(max-width: 882px) {
+    
+}
+
+.bottom{
+    display: flex;                     
+    /* flex-direction: row; */
+    margin-top:20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#logo{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#component{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+p{
+    font-size: larger;
+    font-family: 'Maven Pro', sans-serif;
+    color: white;
+}
+button{
+    font-size: larger;
+    font:bold;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: #FFD700;
+    padding-inline: 31px;
+    padding-block: 10px;
+}
+.text{
+    border-right: 1px solid white;
+     line-height: 35px; 
+     width: 60%;
+}
+.my-img {
+    width: 90%;
+    height: 300px;
+}
+.my-logo{
+    width:100%;
+    height: 120px;
+}
+
+@media (max-width: 882px) {
+    .bottom {
+        flex-direction: column-reverse;
+      }
+    .text{
+          width: 90% !important;
+          border:none !important
+      }
+    .desktop-img {
+        display: none !important;
+    }
+    .tab-logo{
+        height: 320px;
+        width: 70%;
+    }
+    .desktop-logo{
+        display: none !important;
+    }
+    
+    .my-img{
+        height: 600px !important;
+    }
+    #logo-desk{
+        height:160px !important ;
+        width: 100% !important;
+    }
+}
+@media (min-width: 882px) {
+    .mobile-img {
+        display: none !important;
+        /* height: 400px !important; */
+    }
+    
+}
+@media (max-width:540px){
+    .desktop-logo{
+        display: none !important;
+    }
+    .mobile-logo{
+        height: 160px;
+    }
+    .tab-logo{
+        display: none !important;
+    }
+}
+
+@media (min-width:541px){
+    .mobile-logo{
+        display: none !important;
+    }
+    
+}
+@media (min-width:882px){
+    .tab-logo{
+        display: none !important;
+    }
+}
+nav{
+    background-color:  #170151;
+}
+#search{
+    background:none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    border-radius: 0px;
+}
+#search:hover{
+    border-bottom: 2px solid white;
+}
+a{
+    font-family: 'Maven Pro', sans-serif;
+    font-size: x-large;
+}
+#mainDiv{
+    display: flex; justify-content: center; flex-direction: column;
+}
+#btn{
+    display: flex; flex-direction: row;
+}
+#btnMrg{
+    margin-inline: 25px;
+}
+
