@@ -2,16 +2,16 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import './Buy.css'
+import Rating from '@mui/material/Rating';
 const Buy = () => {
-  const [color, setColor] = useState('blue')
-  useEffect(() => setColor('red'), [])
     return(
       <div>
-        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'></script>
+         <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'></script>
         <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"/>
+        {/* <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script> */}
+        
+        {/* <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"/> */}
         <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"></link>
 
    <div className="container-fluid d-flex justify-content-center">
@@ -27,7 +27,7 @@ const Buy = () => {
       <hr className="mt-2 mx-3"/>
       <div className="d-flex flex-row justify-content-between px-3 pb-4">
         <div className="d-flex flex-column"><span className="text-muted">Rating</span><small className="text-muted">USER&#x2a;</small></div>
-        <div className="d-flex flex-column"><h5 className="mb-0"><input data-role="rating" data-value="3" /></h5><small className="text-muted text-right" >(3856)</small></div>
+        <div className="d-flex flex-column"><h5 className="mb-0"><Rating name="size-medium" defaultValue={2} /></h5><small className="text-muted text-right" >(3856)</small></div>
       </div>
       <div className="d-flex flex-row justify-content-between p-3 mid">
         <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px"/><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
@@ -50,7 +50,7 @@ const Buy = () => {
       <hr className="mt-2 mx-3"/>
       <div className="d-flex flex-row justify-content-between px-3 pb-4">
         <div className="d-flex flex-column"><span className="text-muted">Rating</span><small className="text-muted">USER&#x2a;</small></div>
-        {/* <div className="d-flex flex-column"><h5 className="mb-0"><input data-role="rating" data-value="3"/></h5><small className="text-muted text-right">(3085)</small></div> */}
+        <div className="d-flex flex-column"><h5 className="mb-0"><Rating name="size-medium" defaultValue={2} /></h5><small className="text-muted text-right">(3085)</small></div>
       </div>
       <div className="d-flex flex-row justify-content-between p-3 mid">
         <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px"/><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
@@ -73,7 +73,7 @@ const Buy = () => {
       <hr className="mt-2 mx-3"/>
       <div className="d-flex flex-row justify-content-between px-3 pb-4">
         <div className="d-flex flex-column"><span className="text-muted">Rating</span><small className="text-muted">USER&#x2a;</small></div>
-        <div className="d-flex flex-column"><h5 className="mb-0"><input data-role="rating" data-value="3"/></h5><small className="text-muted text-right">(3085)</small></div>
+        <div className="d-flex flex-column"><h5 className="mb-0"><Rating name="size-medium" defaultValue={2} /></h5><small className="text-muted text-right">(3085)</small></div>
       </div>
       <div className="d-flex flex-row justify-content-between p-3 mid">
         <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px"/><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
@@ -96,7 +96,7 @@ const Buy = () => {
       <hr className="mt-2 mx-3"/>
       <div className="d-flex flex-row justify-content-between px-3 pb-4">
         <div className="d-flex flex-column"><span className="text-muted">Rating</span><small className="text-muted">USER&#x2a;</small></div>
-        <div className="d-flex flex-column"><h5 className="mb-0"><input data-role="rating" data-value="3"/></h5><small className="text-muted text-right">(3085)</small></div>
+        <div className="d-flex flex-column"><h5 className="mb-0"><Rating name="size-medium" defaultValue={2} /></h5><small className="text-muted text-right">(3085)</small></div>
       </div>
       <div className="d-flex flex-row justify-content-between p-3 mid">
         <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px"/><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
@@ -111,6 +111,7 @@ const Buy = () => {
   
   </div>
 </div>
+{/* <script src="https://cdn.korzh.com/metroui/v4.5.1/js/metro.min.js"></script> */}
 </div>
 );
 } 
