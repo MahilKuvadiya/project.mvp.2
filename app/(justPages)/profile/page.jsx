@@ -42,19 +42,14 @@ export default function Accounts() {
     return (
         <div className="container-fluid d-flex justify-content-center">
             <div className="row mt-5" style={{justifyContent:'center'}}>
-        <div className={classes.container}>
             {accounts?.length > 0 && <h2>WebDevMania&apos;s Blog Website</h2>}
-            <div className={classes.wrapper}>
-                {accounts?.length > 0
-                    ? 
-                       accounts.map((blog) => (
-                        <BlogCard key={blog.id} blog={blog}/>
-                      )) 
-                    : <h3 className={classes.noBlogs}>No Accounts </h3>}
+            {accounts.length > 0 ? (
+            accounts.map((blog) => <AccountCard key={blog.id} blog={blog} />)
+          ) : (
+            <h3 className={classes.noBlogs}>No Accounts</h3>
+          )}
             </div>
         </div>
-        </div>
-      </div>
     );
   }
   
