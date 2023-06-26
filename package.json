@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "devDependencies": {
+    "@types/node": "20.3.1",
     "@types/react": "18.2.14",
     "axios": "^1.4.0",
     "prisma": "^4.15.0",
@@ -19,6 +20,7 @@
     "@next-auth/prisma-adapter": "^1.0.7",
     "autoprefixer": "^10.4.14",
     "debug": "^4.3.4",
+    "encoding": "^0.1.13",
     "firebase": "^9.23.0",
     "next-auth": "^4.22.1",
     "next-connect": "^1.0.0",
