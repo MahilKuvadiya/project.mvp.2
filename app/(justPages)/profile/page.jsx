@@ -5,7 +5,9 @@ import axios from 'axios'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import {useRouter} from 'next/navigation'
 import AccountCard from 'app/components/AccountCard'
+// import {useRouter} from 'next/navigation'
 
 export default function Accounts() {
     const [accounts, setAccounts] = useState([]);
