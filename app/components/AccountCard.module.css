@@ -1,0 +1,266 @@
+/* .container{
+    width: 23%;
+    height: 540px;
+    box-shadow: 2px 5px 27px -8px rgba(0, 0, 0, 0.15);
+    transition: 150ms;
+    border-radius: 12px;
+}
+
+.container:hover{
+    box-shadow: 2px 5px 27px -8px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper{
+    padding: 1.25rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper > .imgContainer > img{
+    object-fit: cover;
+    border-radius: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.blogData{
+    margin-left: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogData > .left > h3{
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.blogData > .left > p{
+   color: #666; 
+}
+
+.blogData > .left > span{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 15px;
+}
+
+.blogData > .left > span > span{
+    color: #777;
+}
+
+.blogData > .right{
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+/* body{
+	background: #F5F1EE;
+	font-family: 'Roboto', sans-serif;
+} */
+.card{
+	width: 250px;
+	border-radius: 10px;
+}
+
+.card-img-top{
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+span.text-muted{
+	font-size: 12px;
+}
+small.text-muted{
+	font-size: 8px;
+}
+h5.mb-0{
+	font-size: 1rem;
+}
+small.ghj{
+	font-size: 9px;
+}
+.mid{
+	background: #ECEDF1;
+}
+h6.ml-1{
+	font-size: 13px;
+}
+small.key{
+	text-decoration: underline;
+	font-size: 9px;
+	cursor: pointer;
+}
+.btn-danger{
+	color: #FFCBD2;
+}
+.btn-danger:focus{
+	box-shadow: none;
+}
+small.justify-content-center{
+	font-size: 9px;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+@media screen and (max-width:600px){
+    .col-sm-4{
+        margin-bottom: 50px;
+    }
+}
+ /* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+/* body{
+    background-color: #10003B !important; 
+}
+@media(max-width: 882px) {
+    
+} */
+
+.bottom{
+    display: flex;                     
+    /* flex-direction: row; */
+    margin-top:20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#logo{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#component{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+/* p{
+    font-size: larger;
+    font-family: 'Maven Pro', sans-serif;
+    color: white;
+} */
+/* button{
+    font-size: larger;
+    font:bold;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: #FFD700;
+    padding-inline: 31px;
+    padding-block: 10px;
+} */
+.text{
+    border-right: 1px solid white;
+     line-height: 35px; 
+     width: 60%;
+}
+.my-img {
+    width: 90%;
+    height: 300px;
+}
+.my-logo{
+    width:100%;
+    height: 120px;
+}
+
+@media (max-width: 882px) {
+    .bottom {
+        flex-direction: column-reverse;
+      }
+    .text{
+          width: 90% !important;
+          border:none !important
+      }
+    .desktop-img {
+        display: none !important;
+    }
+    .tab-logo{
+        height: 320px;
+        width: 70%;
+    }
+    .desktop-logo{
+        display: none !important;
+    }
+    
+    .my-img{
+        height: 600px !important;
+    }
+    #logo-desk{
+        height:160px !important ;
+        width: 100% !important;
+    }
+}
+@media (min-width: 882px) {
+    .mobile-img {
+        display: none !important;
+        /* height: 400px !important; */
+    }
+    
+}
+@media (max-width:540px){
+    .desktop-logo{
+        display: none !important;
+    }
+    .mobile-logo{
+        height: 160px;
+    }
+    .tab-logo{
+        display: none !important;
+    }
+}
+
+@media (min-width:541px){
+    .mobile-logo{
+        display: none !important;
+    }
+    
+}
+@media (min-width:882px){
+    .tab-logo{
+        display: none !important;
+    }
+}
+/* nav{
+    background-color:  #170151;
+} */
+#search{
+    background:none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    border-radius: 0px;
+}
+#search:hover{
+    border-bottom: 2px solid white;
+}
+/* a{
+    font-family: 'Maven Pro', sans-serif;
+    font-size: x-large;
+} */
+#mainDiv{
+    display: flex; justify-content: center; flex-direction: column;
+}
+#btn{
+    display: flex; flex-direction: row;
+}
+#btnMrg{
+    margin-inline: 25px;
+}
+

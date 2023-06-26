@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
-import BlogCard from 'app/components/BlogCard';
+import AccountCard from 'app/components/AccountCard';
 import classes from './page.module.css';
 import { useRouter } from 'next/navigation';
 export default function Accounts() {
@@ -43,21 +43,25 @@ export default function Accounts() {
   }, [session]);
 
   return (
-    <div className={classes.container}>
-      {isLoading ? (
-        <div className={classes.loader}></div> // Display the loader
-      ) : (
-        <>
-          {accounts.length > 0 && <h2>WebDevMania&apos;s Blog Website</h2>}
-          <div className={classes.wrapper}>
-            {accounts.length > 0 ? (
-              accounts.map((blog) => <BlogCard key={blog.id} blog={blog} />)
-            ) : (
-              <h3 className={classes.noBlogs}>No Accounts</h3>
-            )}
-          </div>
-        </>
-      )}
+
+
+
+    <div className="container-fluid d-flex justify-content-center">
+      <div className="row mt-5" style={{ justifyContent: 'center' }}>
+        {isLoading ? (
+          <div className={classes.loader}></div> // Display the loader
+        ) : (
+          <>
+            {accounts.length > 0 && <h2>WebDevMania&apos;s Blog Website</h2>}
+              {accounts.length > 0 ? (
+                accounts.map((blog) => <AccountCard key={blog.id} blog={blog} />)
+              ) : (
+                <h3 className={classes.noBlogs}>No Accounts</h3>
+              )}
+            
+          </>
+        )}
+      </div>
     </div>
   );
 }
