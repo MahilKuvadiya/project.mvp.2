@@ -24,6 +24,7 @@
     "@next-auth/prisma-adapter": "^1.0.7",
     "autoprefixer": "^10.4.14",
     "debug": "^4.3.4",
+    "encoding": "^0.1.13",
     "firebase": "^9.23.0",
     "jquery": "^3.3.1",
     "next-auth": "^4.22.1",
