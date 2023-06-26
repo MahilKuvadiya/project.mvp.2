@@ -41,9 +41,8 @@ const AccountCard = ({ blog: { title, accountName, image, gameName, id,price,spe
   {/* <div className="row mt-5" style={{justifyContent:'center'}}> */}
       <div className="col-sm-4" style={{ minWidth: '400px' }}>
         <div className="card">
-        <Link className={classes.imgContainer} href={`/blog/${id}`}>
             <Image src={imageUrl}className="card-img-top" width="350" height="250" alt='main Photo' />
-          </Link>
+         
           {/* <img src="assets/BGMI.webp" className="card-img-top" width="100%" /> */}
           <div className="card-body pt-0 px-0">
             <div className="d-flex flex-row justify-content-between mb-0 px-3">
@@ -62,8 +61,11 @@ const AccountCard = ({ blog: { title, accountName, image, gameName, id,price,spe
             <small className="text-muted key pl-3">Standard key Features</small>
             
             <div className="mx-3 mt-3 mb-2">
-            <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>BUY NOW</small></button>
-            
+
+            <Link className={classes.imgContainer} href={`/account/${id}`}>
+
+            <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>KNOW MORE</small></button>
+            </Link>
             </div>
             <small className="d-flex justify-content-center text-muted">*Legal Disclaimer</small>
           </div>

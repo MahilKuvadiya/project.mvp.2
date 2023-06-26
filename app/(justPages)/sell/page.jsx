@@ -1,23 +1,23 @@
 'use client'
+
 import React, { useState } from 'react';
 import { AiOutlineFileImage } from 'react-icons/ai';
-// import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
-import { useRouter } from "next/navigation"
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-hot-toast';
 import classes from './sell.module.css';
-import { toast } from "react-hot-toast"
 
 const CreateBlog = () => {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
-  const [gameName, setgameName] = useState('BGMI');
+  const [gameName, setGameName] = useState('BGMI');
   const [images, setImages] = useState([]);
-  const [video, setVideo] = useState();
+  const [video, setVideo] = useState(null);
   const [accountName, setAccountName] = useState('');
   const [specialFeature, setSpecialFeature] = useState('');
-  const [priceString, setprice] = useState('');
-
+  const [priceString, setPrice] = useState('');
+  const [isCreating, setIsCreating] = useState(false);
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -33,6 +33,11 @@ const CreateBlog = () => {
     );
   }
 
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    setImages(files);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,52 +46,95 @@ const CreateBlog = () => {
       return;
     }
 
+    setIsCreating(true);
+
     try {
-      const imageUrl = await uploadImage();
-      if(!imageUrl){
+      const imageUrl = await uploadImages();
+      if (!imageUrl) {
+        setIsCreating(false);
         return;
       }
+
       const videoUrl = await uploadVideo();
 
       const email = session?.user?.email;
       const data = {
-        title: title,
-        accountName: accountName,
-        gameName: gameName,
-        priceString: priceString,
-        email: email,
+        title,
+        accountName,
+        gameName,
+        priceString,
+        email,
         description: desc,
         image: imageUrl,
         video: videoUrl,
-        specialFeature: specialFeature,
+        specialFeature,
       };
 
       const res = await axios.post('/api/addGamingAccount', data);
 
       if (res.status === 200) {
-        // Account created successfully
-        const responseData = res.data;
-        // Process the data as needed
         toast.success('Account added.');
-        router.push('/');
+        router.push('/profile');
       } else if (res.status === 201) {
-        // Account already exists
         toast.error('Account already exists.');
       } else {
-        // Other error occurred
         toast.error('Something went wrong.');
       }
     } catch (error) {
-      //   console.log(error);
+      console.log(error);
       toast.error('Something went wrong!');
+    } finally {
+      setIsCreating(false);
     }
+  };
+
+  const uploadImages = async () => {
+    const UPLOAD_PRESET = 'MVP_Trades';
+    const CLOUD_NAME = 'dz4nwfxrd';
+
+    if (images.length < 3) {
+      toast.error('Please upload at least 3 images.');
+      return null;
+    } else if (images.length > 5) {
+      toast.error('Maximum 5 Images are allowed.');
+      return null;
+    }
+
+    const imageUrls = [];
+
+    for (const image of images) {
+      const formData = new FormData();
+      formData.append('file', image);
+      formData.append('upload_preset', UPLOAD_PRESET);
+
+      try {
+        const response = await axios.post(
+          `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+          formData
+        );
+
+        if (response.status === 200) {
+          const imageUrl = response.data.secure_url;
+          imageUrls.push(imageUrl);
+        } else {
+          console.log(response);
+          throw new Error('Failed to upload image');
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error('Failed to upload images');
+        return null;
+      }
+    }
+
+    return imageUrls;
   };
 
   const uploadVideo = async () => {
     const UPLOAD_PRESET = 'MVP_Trades';
     const CLOUD_NAME = 'dz4nwfxrd';
 
-    if (!video) return;
+    if (!video) return null;
 
     const formData = new FormData();
     formData.append('file', video);
@@ -103,61 +151,15 @@ const CreateBlog = () => {
       }
 
       const videoUrl = response.data.secure_url;
-      console.log(videoUrl)
       return videoUrl;
     } catch (error) {
       console.log(error);
       toast.error('Failed to upload video');
+      return null;
     }
-  }
-
-  const uploadImage = async () => {
-    const UPLOAD_PRESET = 'MVP_Trades';
-    const CLOUD_NAME = 'dz4nwfxrd';
-
-    if (images.length < 3) {
-      toast.error("Please upload atleast 3 images.")
-      return;
-    } else if (images.length > 5) {
-      toast.error("Maximum 5 Images are allowed.")
-      return;
-    }
-
-    const imageUrls = [];
-    for (const image of images) {
-      const formData = new FormData();
-      formData.append('file', image);
-      formData.append('upload_preset', UPLOAD_PRESET);
-
-      try {
-        const response = await axios.post(
-          `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-          formData
-        );
-
-        if (response.status === 200) {
-          const imageUrl = response.data.secure_url;
-          console.log(imageUrl)
-          imageUrls.push(imageUrl);
-        } else {
-          console.log(response);
-          throw new Error('Failed to upload image');
-        }
-      } catch (error) {
-        console.log(error);
-        toast.error('Failed to upload images');
-        return [];
-      }
-    }
-
-    console.log(imageUrls)
-    return imageUrls;
   };
 
-  const handleImageUpload = (e) => {
-    const files = Array.from(e.target.files);
-    setImages(files);
-  };
+
 
   return (
     <div className={classes.container}>
@@ -168,21 +170,24 @@ const CreateBlog = () => {
             <input
               type="text"
               placeholder="Title..."
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
             <input
               type="text"
               placeholder="Account Name..."
+              value={accountName}
               onChange={(e) => setAccountName(e.target.value)}
             />
           </div>
           <textarea
             placeholder="Description..."
+            value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
           <select
             value={gameName}
-            onChange={(e) => setgameName(e.target.value)}
+            onChange={(e) => setGameName(e.target.value)}
           >
             <option value="Asphalt 9">Asphalt 9</option>
             <option value="Valorent">Valorent</option>
@@ -218,14 +223,18 @@ const CreateBlog = () => {
             <input
               type="number"
               placeholder="Integer Value..."
-              onChange={(e) => setprice(e.target.value)}
+              value={priceString}
+              onChange={(e) => setPrice(e.target.value)}
             />
           </div>
           <textarea
             placeholder="Any Special Feature..."
+            value={specialFeature}
             onChange={(e) => setSpecialFeature(e.target.value)}
           />
-          <button className={classes.createBlog}>Create</button>
+          <button className={classes.createBlog} disabled={isCreating}>
+            {isCreating ? 'Creating...' : 'Create'}
+          </button>
         </form>
       </div>
     </div>
