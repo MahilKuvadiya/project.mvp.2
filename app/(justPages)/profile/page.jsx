@@ -7,7 +7,7 @@ import axios from 'axios'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import BlogCard from 'app/components/BlogCard'
+import AccountCard from 'app/components/AccountCard'
 
 export default function Accounts() {
     const [accounts, setAccounts] = useState([]);
@@ -38,16 +38,19 @@ export default function Accounts() {
     }, [session]);
     console.log(accounts)
     return (
-        <div className={classes.container}>
+
+            <div className="container-fluid d-flex justify-content-center">
+            <div className="row mt-5" style={{justifyContent:'center'}}>
             {accounts?.length > 0 && <h2>WebDevMania&apos;s Blog Website</h2>}
-            <div className={classes.wrapper}>
                 {accounts?.length > 0
                     ? 
                        accounts.map((blog) => (
-                        <BlogCard key={blog.id} blog={blog}/>
+                        <AccountCard key={blog.id} blog={blog}/>
                       )) 
                     : <h3 className={classes.noBlogs}>No Accounts </h3>}
             </div>
+            
+            
         </div>
     )
 }
