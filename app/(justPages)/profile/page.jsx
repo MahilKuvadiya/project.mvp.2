@@ -11,6 +11,14 @@ export default function Accounts() {
   const { data: session, status } = useSession();
   const [userEmail, setUserEmail] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const anotherSession = useSession()
+  const router = useRouter();
+
+  useEffect(() => {
+    if (anotherSession?.status === 'unauthenticated') {
+       router.push('/') 
+    }
+})
 
   useEffect(() => {
     async function fetchAccounts() {
