@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import classes from './AccountCard.module.css'
+import classes from './AccountCard.css'
 import Rating from '@mui/material/Rating';
 // import { useSession } from 'next-auth/react'
 // import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
@@ -37,14 +37,14 @@ const AccountCard = ({ blog: { title, accountName, image, gameName, id,price,spe
           </div>
         </div>
       </div> */}
-{/* <div className="container-fluid d-flex justify-content-center"> */}
+{/* <div className="container-fluid d-flex justify-content-center">  */}
   {/* <div className="row mt-5" style={{justifyContent:'center'}}> */}
-      <div className="col-sm-4" style={{ minWidth: '400px' }}>
-        <div className="card">
+      {/* <div className="col-sm-4" style={{ minWidth: '400px' }}>
+        <div className={classes.card}>
         <Link className={classes.imgContainer} href={`/blog/${id}`}>
             <Image src={imageUrl}className="card-img-top" width="350" height="250" alt='main Photo' />
           </Link>
-          {/* <img src="assets/BGMI.webp" className="card-img-top" width="100%" /> */}
+          {/* <img src="assets/BGMI.webp" className="card-img-top" width="100%" /> 
           <div className="card-body pt-0 px-0">
             <div className="d-flex flex-row justify-content-between mb-0 px-3">
               <small className="text-muted mt-1">STARTING AT</small>
@@ -68,7 +68,55 @@ const AccountCard = ({ blog: { title, accountName, image, gameName, id,price,spe
             <small className="d-flex justify-content-center text-muted">*Legal Disclaimer</small>
           </div>
         </div>
-      </div>
+      </div> */}
+      <div className="col-sm-4" style={{ maxWidth: '480px', height: '650px' }}>
+            <div className="card">
+
+              <div class="bg-shape">
+              <Link className={classes.imgContainer} href={`/blog/${id}`}>
+                  <img src={imageUrl} width="440" height="200" />
+               </Link>
+                {/* <img src="assets/BGMI.webp" alt="" /> */}
+              </div>
+              <div class="product-slider__wrp swiper-wrapper" style={{display:'flex',justifyContent:'center'}}>
+                <div class="product-slider__item swiper-slide swiper-slide-active" style={{ width: '405px', opacity: '1', transform: 'translate3d(0px, 0px, 0px)' }}>                  <div class="product-slider__card">
+                  <img
+                    src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405223/starwars/item-4-bg.webp"
+                    alt="star wars" class="product-slider__cover" />
+                  <div class="product-slider__content">
+                    <h1 class="product-slider__title">
+                      {title}
+                    </h1>
+                    <span class="product-slider__price">&#8377;{price}&#x2a;<sup>00</sup></span>
+                    <span class="hr-vertical"></span>
+                    <div class="product-ctr">
+                      <div class="product-labels">
+                        <div class="product-labels__title">DESCRIPTION</div>
+
+                        <div class="product-labels__group">
+                          <label class="product-labels__item">
+                            <span class="product-labels__txt">{description}</span>
+                          </label>
+
+
+                        </div>
+
+                      </div>
+                    </div>
+                    <span class="hr-vertical"></span>
+
+                    <div class="product-slider__bottom">
+                      <button class="product-slider__cart">
+                        BUY NOW
+                      </button>
+
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
       {/* </div> */}
       {/* </div> */}
     </>

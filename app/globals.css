@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
 body{
-    background-color: #10003B !important; 
+    background-image: url("../public/assets/back.webp");
 }
 @media(max-width: 882px) {
     
