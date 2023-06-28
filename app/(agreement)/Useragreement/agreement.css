@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+body{
+    background-image: linear-gradient(to right top, #051937, #241538, #3a0d30, #490622, #4f0a0f);
+    font-family: 'Maven Pro', sans-serif;
+}
+
+h1{
+    color: rgb(190, 190, 190);
+    font-family: 'Barlow', sans-serif;
+    text-align: center;
+    font: bolder;
+    margin: 5px;
+    margin-top: 100px;
+}
+
+.title{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+p{
+    color: rgb(190, 190, 190);
+    font-family: 'Barlow', sans-serif;
+    margin: 50px;
+    font-size: large;
+}
+
+span{
+    font-size: larger;
+    text-decoration: underline;
+}
+
+nav{
+    background-image: linear-gradient(to left, #080932,  #3d0b0f);
+}

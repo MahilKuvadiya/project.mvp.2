@@ -40,40 +40,15 @@ export default function page() {
 
                 </p>
                 <div class="btn-group" id="btn" role="group" aria-label="Basic example">
-                    <button type="button" id="btnMrg">
-                    <a class="btn" role='button' href='./Buy'>BUY</a>
-                    </button>
-                    <button type='button'>
-                    <a class="btn" role='button' href='./sell'>SELL</a>
-                    </button>
-                </div>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'row',marginInline:'104px',marginTop:'40px',marginBottom:'40px' }}>
-                <div><img class="list-image" src="assets/m.jpg" alt="Item Image" height="172px" width="294px" /></div>
-                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row' }}>
-                        <div>
-                            <div><p>User_Name</p></div>
-                            <div><p>User_id</p></div>
-                        </div>
-                        <div>
-                            
-                            <div><p>$5000</p></div>
-                            <div><p>Rating</p></div>
+                    
+                    <a class="btn" id='b1' role='button' href='./Buy'>BUY</a>
 
-                        </div>
-                        <div><button>BUY</button></div>
-                    </div>
-                    <div>
-                        <p class="containe">
-                            Discover a world of gaming greatness through our platform, where gamers connect, exchange, and
-                            conquer together.
-                            Seamlessly trade game accounts and unlock a wealth of thrilling experiences. Embrace the power of
-                            community as you journey towards gaming victory.
-                        </p>
-                    </div>
+
+                    <a class="btn" id='b2' role='button' href='./sell'>SELL</a>
+
                 </div>
             </div>
+            
         </div>
 
 

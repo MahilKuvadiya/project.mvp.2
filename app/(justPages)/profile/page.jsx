@@ -1,10 +1,10 @@
 'use client'
-
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
 import AccountCard from 'app/components/AccountCard';
 import classes from './page.css';
+import {useRouter} from 'next/navigation'
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);

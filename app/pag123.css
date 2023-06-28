@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities; */
 
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
 body{
-    background-color: #10003B !important; 
+    background-image: linear-gradient(to right top, #051937, #241538, #3a0d30, #490622, #4f0a0f);
 }
+    
 @media(max-width: 882px) {
     
 }
@@ -35,17 +36,35 @@ body{
 
 p{
     font-size: larger;
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Barlow', sans-serif;
     color: white;
 }
-button{
+
+#b1{
     font-size: larger;
     font:bold;
     font-weight: 600;
     border-radius: 5px;
-    background-color: #FFD700;
-    padding-inline: 31px;
-    padding-block: 10px;
+    background-image: linear-gradient(-45deg, #d0bd15 0%, #ffe600 100%);
+    padding-inline: 50px;
+    padding-block: 5px;
+    margin: 10px;
+}
+#b2{
+    font-size: larger;
+    font:bold;
+    font-weight: 600;
+    border-radius: 5px;
+    background-image: linear-gradient(-45deg, #d0bd15 0%, #ffe600 100%);
+    padding-inline: 50px;
+    padding-block: 5px;
+    margin: 10px;
+}
+#b1:hover{
+    background-image: linear-gradient(-45deg, #fff200 0%, #fff200 100%);
+}
+#b2:hover{
+    background-image: linear-gradient(-45deg, #fff200 0%, #fff200 100%);
 }
 .text{
     border-right: 1px solid white;
@@ -74,14 +93,14 @@ button{
     }
     .tab-logo{
         height: 320px;
-        width: 70%;
+        width: 85%;
     }
     .desktop-logo{
         display: none !important;
     }
     
     .my-img{
-        height: 600px !important;
+        height: 450px !important;
     }
     #logo-desk{
         height:160px !important ;
@@ -100,7 +119,7 @@ button{
         display: none !important;
     }
     .mobile-logo{
-        height: 160px;
+        height: 180px;
     }
     .tab-logo{
         display: none !important;
@@ -119,7 +138,7 @@ button{
     }
 }
 nav{
-    background-color:  #170151;
+    background-image: linear-gradient(to left, #080932,  #3d0b0f);
 }
 #search{
     background:none;
