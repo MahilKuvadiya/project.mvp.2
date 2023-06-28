@@ -69,7 +69,7 @@ const AccountCard = ({ blog: { title, accountName, image, gameName, id, price, s
           </div>
         </div>
       </div> */}
-      <div className="col-sm-4" style={{ maxWidth: '480px', height: '650px' }}>
+      <div className="col-sm-4" style={{ maxWidth: '415px', height: '650px' }}>
         <div className="card">
 
           <div class="bg-shape">
@@ -106,13 +106,15 @@ const AccountCard = ({ blog: { title, accountName, image, gameName, id, price, s
                 <span class="hr-vertical"></span>
 
                 <div class="product-slider__bottom">
-                  <Link className={classes.imgContainer} href={`/account/${id}`}>
+                  
 
-                    <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>KNOW MORE</small></button>
-                  </Link>
+                    {/* <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>KNOW MORE</small></button> */}
+                  
+                  <Link className={classes.imgContainer} href={`/account/${id}`}>
                   <button class="product-slider__cart">
                     BUY NOW
                   </button>
+                  </Link>
 
                 </div>
               </div>

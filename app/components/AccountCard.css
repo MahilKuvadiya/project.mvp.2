@@ -112,7 +112,7 @@ a {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 44%;
   display: flex;
   align-items: flex-start;
   transform: translateX(-50%);

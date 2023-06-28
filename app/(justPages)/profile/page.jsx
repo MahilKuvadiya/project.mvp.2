@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
 import AccountCard from 'app/components/AccountCard';
-import classes from './page.css';
+import classes from './profile.css';
 import {useRouter} from 'next/navigation'
 
 export default function Accounts() {
@@ -58,7 +58,7 @@ export default function Accounts() {
           <div className={classes.loader}></div> // Display the loader
         ) : (
           <>
-            {accounts.length > 0 && <h2>WebDevMania&apos;s Blog Website</h2>}
+            {accounts.length > 0}
               {accounts.length > 0 ? (
                 accounts.map((blog) => <AccountCard key={blog.id} blog={blog} />)
               ) : (

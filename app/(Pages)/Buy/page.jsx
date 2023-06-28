@@ -1,12 +1,12 @@
 'use client'
-import './Buy.css'
+// import './Buy.css'
 import Rating from '@mui/material/Rating';
 import React, { useEffect } from 'react';
 import 'swiper/css';
 
 
 
-const Buy = () => {
+const page = () => {
 
   return (
     <div>
@@ -216,4 +216,4 @@ const Buy = () => {
     </div>
   );
 }
-export default Buy
+export default page
