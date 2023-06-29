@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
-import AccountCard from 'app/components/AccountCard';
+import AccountCard from 'app/components/accountCard/AccountCard';
 import classes from './profile.css';
 import {useRouter} from 'next/navigation'
 

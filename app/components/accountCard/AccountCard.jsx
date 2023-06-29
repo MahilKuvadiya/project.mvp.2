@@ -8,7 +8,7 @@ import Rating from '@mui/material/Rating';
 // import { useSession } from 'next-auth/react'
 // import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
 
-const AccountCard = ({ blog: { title, accountName, image, gameName, id,price,specialFeature,email,description
+const AccountCard = ({ account: { title, accountName, image, gameName, id,price,specialFeature,email,description
 
 } }) => {
 
