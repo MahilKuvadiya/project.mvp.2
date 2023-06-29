@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+.legal{
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: large;
+}
+
+hr{
+    border: 1px solid gray;
+}

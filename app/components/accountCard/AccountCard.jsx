@@ -8,7 +8,7 @@ import Rating from '@mui/material/Rating';
 // import { useSession } from 'next-auth/react'
 // import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
 
-const AccountCard = ({ account: { title, accountName, image, gameName, id,price,specialFeature,email,description
+const AccountCard = ({ blog: { title, accountName, image, gameName, id,price,specialFeature,email,description
 
 } }) => {
 
@@ -55,7 +55,7 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id,price,
               <div className="d-flex flex-column"><h5 className="mb-0"><Rating name="size-medium" defaultValue={2} /></h5><small className="text-muted text-right" >(3856)</small></div>
             </div>
             <div className="d-flex flex-row justify-content-between p-3 mid">
-              <div className="d-flex flex-column"><small className="text-muted mb-1">Game name:{gameName}</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px" /><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
+              <div className="d-flex flex-column"><small className="text-muted mb-1">Level/Rank</small><div className="d-flex flex-row"><img src="assets/level1.png" width="35px" height="25px" /><div className="d-flex flex-column ml-1"><small className="ghj">104 Level</small><small className="ghj">1.5 K/D</small></div></div></div>
               <div className="d-flex flex-column"><small className="text-muted mb-2">Special</small><div className="d-flex flex-row"><img src="assets/gift.png" width="25px" height="25px" /><h6 className="ml-1">{specialFeature}&#x2a;</h6></div></div>
             </div>
             <small className="text-muted key pl-3">Standard key Features</small>

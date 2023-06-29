@@ -1,12 +1,10 @@
 'use client'
-
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
-import AccountCard from 'app/components/accountCard/AccountCard';
-import classes from './page.module.css';
-import { useRouter } from 'next/navigation';
-import User from '../../components/User';
+import AccountCard from 'app/components/AccountCard';
+import classes from './profile.css';
+import {useRouter} from 'next/navigation'
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);
@@ -45,6 +43,12 @@ export default function Accounts() {
   }, [session]);
 
   return (
+<>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"></link>
 
 
 
@@ -54,7 +58,7 @@ export default function Accounts() {
           <div className={classes.loader}></div> // Display the loader
         ) : (
           <>
-            {accounts.length > 0 && <User/>}
+            {accounts.length > 0}
               {accounts.length > 0 ? (
                 accounts.map((account) => <AccountCard key={account.id} account={account} />)
               ) : (
@@ -65,5 +69,6 @@ export default function Accounts() {
         )}
       </div>
     </div>
+    </>
   );
 }

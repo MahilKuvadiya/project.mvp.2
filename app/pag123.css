@@ -1,12 +1,13 @@
-/* @tailwind base;
+ /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
 
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
 body{
-    background-image: url("../public/assets/back.webp");
+    background-image: linear-gradient(to right top, #051937, #241538, #3a0d30, #490622, #4f0a0f);
 }
+    
 @media(max-width: 882px) {
     
 }
@@ -35,17 +36,35 @@ body{
 
 p{
     font-size: larger;
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Barlow', sans-serif;
     color: white;
 }
-button{
+
+#b1{
     font-size: larger;
     font:bold;
     font-weight: 600;
     border-radius: 5px;
-    background-color: #FFD700;
-    padding-inline: 31px;
-    padding-block: 10px;
+    background-image: linear-gradient(-45deg, #d0bd15 0%, #ffe600 100%);
+    padding-inline: 50px;
+    padding-block: 5px;
+    margin: 10px;
+}
+#b2{
+    font-size: larger;
+    font:bold;
+    font-weight: 600;
+    border-radius: 5px;
+    background-image: linear-gradient(-45deg, #d0bd15 0%, #ffe600 100%);
+    padding-inline: 50px;
+    padding-block: 5px;
+    margin: 10px;
+}
+#b1:hover{
+    background-image: linear-gradient(-45deg, #fff200 0%, #fff200 100%);
+}
+#b2:hover{
+    background-image: linear-gradient(-45deg, #fff200 0%, #fff200 100%);
 }
 .text{
     border-right: 1px solid white;
@@ -74,14 +93,14 @@ button{
     }
     .tab-logo{
         height: 320px;
-        width: 70%;
+        width: 85%;
     }
     .desktop-logo{
         display: none !important;
     }
     
     .my-img{
-        height: 600px !important;
+        height: 450px !important;
     }
     #logo-desk{
         height:160px !important ;
@@ -100,7 +119,7 @@ button{
         display: none !important;
     }
     .mobile-logo{
-        height: 160px;
+        height: 180px;
     }
     .tab-logo{
         display: none !important;
@@ -119,7 +138,7 @@ button{
     }
 }
 nav{
-    background-color:  #170151;
+    background-image: linear-gradient(to left, #07072a,#28060a);
 }
 #search{
     background:none;
@@ -136,6 +155,11 @@ a{
     font-family: 'Maven Pro', sans-serif;
     font-size: x-large;
 }
+@media (max-width:373px) {
+    a{
+        font-size: 6vw;
+    }
+}
 #mainDiv{
     display: flex; justify-content: center; flex-direction: column;
 }
@@ -144,4 +168,45 @@ a{
 }
 #btnMrg{
     margin-inline: 25px;
+}
+
+.dancing-message {
+    display: inline;
+    position: fixed;
+    top: 96px;
+    right: 20px;
+    font-size: 15px;
+    animation: dance 2s infinite;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 7px;
+    border-radius: 5px;
+    /* border: 2px solid #ccc; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes dance {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-10px); }
+    50% { transform: translateY(0px); }
+    75% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  .arrow {
+    border-style: dashed;
+    border-color: transparent;
+    border-width: 0.2em;
+    display: -moz-inline-box;
+    display: inline-block;
+    font-size: 100px;
+    height: 0;
+    line-height: 0;
+    position: absolute;
+    vertical-align: middle;
+    width: 0;
+    top: -95%;
+    border-bottom-width: 0.2em;
+    border-bottom-style: solid;
+    border-bottom-color: #f1f1f1;
+    left: 1.17em;
 }

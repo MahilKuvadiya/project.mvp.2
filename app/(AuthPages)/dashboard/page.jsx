@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import PhoneSignUp from '../../phoneSignUp';
+import './dashboard.css'
 
 export default function Dashboard() {
   const { data: session } = useSession();
@@ -64,30 +65,54 @@ export default function Dashboard() {
         }, [isOtpVerified]);
 
   return (
-    <div>
-      <h1>Update Data</h1>
-      <input
+    <>
+    <div className='container' style={{height:'100vh'}}>
+    
+{/* <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div> */}
+    {/* </div> */}
+    {/* <form> */}
+    <div className='dash'>
+        <h3>Update Account</h3>
+
+        <label for="username">Mobile Number</label>
+        <div style={{display:'flex'}}>
+        <input
         id="phoneNum"
-        type="text"
+        type="number"
         placeholder="PhoneNumber"
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
       />
-      <button onClick={handleSignInSubmit}>Verify</button>
-      <PhoneSignUp
+       <button onClick={handleSignInSubmit}>Verify</button>
+       </div>
+        {/* <input type="text" placeholder="Email or Phone" id="username"/> */}
+
+        <label for="password"></label>
+        <PhoneSignUp
         phoneNumber={document.getElementById('phoneNum')?.value}
         ref={phoneSignUpRef}
         onOtpVerification={handleOtpVerification}
       />
-      <input
+    <br/>
+    <label for="password" style={{marginTop:'5px'}}>Account Name</label>
+    <input
+    style={{width:'100%'}}
         type="text"
         placeholder="GamingName"
         value={gamingName}
         onChange={(e) => setGamingName(e.target.value)}
       />
-      <button onClick={handleUpdateData} disabled={!isOtpVerified}>
+    {/* <input type="button" value="Sign in"/><br/> */}
+    <button onClick={handleUpdateData} disabled={!isOtpVerified} style={{marginTop:'56px',width:'100%'}}>
         Update
       </button>
+
     </div>
+    </div>
+    </>
+
+
   );
 }

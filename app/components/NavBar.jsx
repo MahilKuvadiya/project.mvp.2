@@ -4,6 +4,8 @@ import { useSession } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
 import { signOut } from 'next-auth/react'
 import Image from "next/image";
+import '../pag123.css'
+// import '../../app/pag.css'
 const style1 = { display: 'flex', justifycontent: 'center', flexdirection: 'row', alignitems: 'center', margininline: '10px' }
 const NavBar = () => {
   const { data: session } = useSession()
@@ -19,11 +21,11 @@ const NavBar = () => {
         <div class="container-fluid">
           <a href="#" class="navbar-brand"><img src="assets/onlyLogo.png" height="50px" width="50px"></img></a>
 
-          <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar4" />
-          <button type="button" class="navbar-toggler ml-auto custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          {/* <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar4" /> */}
+          {/* <button type="button" class="navbar-toggler ml-auto custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <img src="drop-down-menu.png" alt="" height="35px" width="35px" />
-          </button>
-          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          </button> */}
+          {/* <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
               <a href="/" class="nav-item nav-link active">Home</a>
               <a href="#" class="nav-item nav-link">Profile</a>
@@ -36,32 +38,40 @@ const NavBar = () => {
                 </div>
               </div>
             </div>
-                {/* <a href="/home" class="nav-item nav-link" style={{ paddingLeft: '20px', borderLeft: '1px solid white' }}>Login</a> */}
-              </div>
+                <a href="/home" class="nav-item nav-link" style={{ paddingLeft: '20px', borderLeft: '1px solid white' }}>Login</a>
+              </div> */}
             <div style={Object.assign({}, style1)}>
-              <form class="d-flex">
+              {/* <form class="d-flex">
                 <div class="input-group">
+                
                   <button type="button" style={{ background: 'none !important', borderTop: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: '2px solid white', borderRradius: '0px !important' }}><img src="assets/components-search.png" height="25px" width="25px" alt="" /></button>
                   <input id="search" type="text" class="form-control" placeholder="Search" style={{ marginRight: '20px' }} />
                 </div>
-              </form>
+              </form> */}
+              
               <div>
               {session?.user?(
+                <>
+                
               <div style={{display:'flex',justifyContent: 'center'}}>
-        <a class="nav-item nav-link" style={{ paddingLeft: '20px', borderLeft: '1px solid white' }} onClick={() => signOut()}>Sign Out</a>
+              <div>
+              <a href="#" class="nav-item nav-link" style={{color:'grey'}}>Profile</a>
+              </div>
+        <a class="nav-item nav-link" style={{ paddingLeft: '20px', borderLeft: '1px solid white',color:'white' }} onClick={() => signOut()}>Sign Out</a>
         <a href="/dashboard">
         <Image
                 src={session?.user.image}
                 width={52}
                 height={52}
-                className='rounded-full'
+                className='rounded-circle'
                 alt='profile'
         />
         </a>
         </div>
+        </>
 
     ):(
-      <a  class="nav-item nav-link" style={{ paddingLeft: '20px', borderLeft: '1px solid white' }} onClick={() => signIn('google')}>Sign In</a>
+      <a  class="nav-item nav-link" style={{ paddingLeft: '20px', borderLeft: '1px solid white',color:'grey' }} onClick={() => signIn('google')}>Sign In</a>
     )}
             </div>
           </div>
@@ -71,6 +81,7 @@ const NavBar = () => {
     </>
   )
 }
+
 
 export default NavBar
 

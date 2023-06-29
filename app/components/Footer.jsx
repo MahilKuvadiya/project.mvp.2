@@ -1,8 +1,15 @@
 import React from 'react'
+import './footer.css'
 
 const Footer = () => {
   return (
-    <h1>Footer</h1>
+
+    <div className="legal">
+      <hr />
+      <a href="./PrivacyPolicy" style={{margin:'20px'}}> Privacy Policy</a>
+      <a href="./UserAgreement" style={{margin:'20px'}}>User Agreement</a>
+    </div>
+    
   )
 }
 
