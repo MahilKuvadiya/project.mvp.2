@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
-import AccountCard from 'app/components/AccountCard';
+import AccountCard from 'app/components/accountCard/AccountCard';
 import classes from './page.module.css';
 import { useRouter } from 'next/navigation';
+import User from '../../components/User';
+
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);
   const { data: session, status } = useSession();
@@ -52,9 +54,9 @@ export default function Accounts() {
           <div className={classes.loader}></div> // Display the loader
         ) : (
           <>
-            {accounts.length > 0 && <h2>WebDevMania&apos;s Blog Website</h2>}
+            {accounts.length > 0 && <User/>}
               {accounts.length > 0 ? (
-                accounts.map((blog) => <AccountCard key={blog.id} blog={blog} />)
+                accounts.map((account) => <AccountCard key={account.id} account={account} />)
               ) : (
                 <h3 className={classes.noBlogs}>No Accounts</h3>
               )}
