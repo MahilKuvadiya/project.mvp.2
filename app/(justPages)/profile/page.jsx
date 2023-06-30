@@ -18,9 +18,9 @@ export default function Accounts() {
 
   useEffect(() => {
     if (anotherSession?.status === 'unauthenticated') {
-       router.push('/') 
+      router.push('/')
     }
-})
+  })
 
   useEffect(() => {
     async function fetchAccounts() {
@@ -46,21 +46,19 @@ export default function Accounts() {
 
   return (
 
-
-
     <div className="container-fluid d-flex justify-content-center">
       <div className="row mt-5" style={{ justifyContent: 'center' }}>
         {isLoading ? (
           <div className={classes.loader}></div> // Display the loader
         ) : (
           <>
-            {accounts.length > 0 && <User/>}
-              {accounts.length > 0 ? (
-                accounts.map((account) => <AccountCard key={account.id} account={account} />)
-              ) : (
-                <h3 className={classes.noBlogs}>No Accounts</h3>
-              )}
-            
+
+            {accounts.length > 0 ? (
+              accounts.map((account) => <AccountCard key={account.id} account={account} />)
+            ) : (
+              <h3 className={classes.noBlogs}>No Accounts</h3>
+            )}
+
           </>
         )}
       </div>

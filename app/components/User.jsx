@@ -20,6 +20,7 @@ export default function User() {
         // console.log(data);
 
         const response = await axios.post('/api/getUserInfo', data);
+        // console.log(response)
         setUser(response.data);
         // console.log("request sent");
         // toast.success("Data fetched.");
@@ -32,8 +33,9 @@ export default function User() {
   }, [session]);
 
   JSON.stringify(user);
-  const gamingName = user.gamingName
-  return (
-    <h6>Hey {gamingName}</h6>
-  )
+  console.log(user)
+  const phoneNumber = user.phoneNumber
+  console.log(phoneNumber)
+
+  return phoneNumber
 }

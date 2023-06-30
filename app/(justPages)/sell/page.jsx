@@ -1,12 +1,14 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { AiOutlineFileImage } from 'react-icons/ai';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import classes from './sell.module.css';
+import User from '../../components/User';
+
 
 const CreateBlog = () => {
   const [title, setTitle] = useState('');
@@ -21,17 +23,17 @@ const CreateBlog = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  if (status === 'loading') {
-    return <p>Loading...</p>;
+const phoneNumber = User();
+
+useEffect(()=>{
+  if(phoneNumber === ''){
+    toast.error("Complete your profile.")
+    router.push('/dashboard')
   }
 
-  if (status === 'unauthenticated') {
-    return (
-      <p className={classes.accessDenied}>
-        Please Log In First
-      </p>
-    );
-  }
+  if (session?.status === 'unauthenticated') {
+    router.push('/')
+  }},[phoneNumber,session])
 
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
@@ -165,6 +167,7 @@ const CreateBlog = () => {
     <div className={classes.container}>
       <div className={classes.wrapper}>
         <h2>Create Post</h2>
+      
         <form onSubmit={handleSubmit}>
           <div className={classes.inputGroup}>
             <input
