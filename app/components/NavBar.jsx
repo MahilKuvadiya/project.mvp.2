@@ -65,6 +65,7 @@ const NavBar = () => {
                 height={52}
                 className='rounded-circle'
                 alt='profile'
+                id='prof'
         />
         </a>
         </div>

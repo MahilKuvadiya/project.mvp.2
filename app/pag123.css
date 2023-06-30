@@ -210,3 +210,20 @@ a{
     border-bottom-color: #f1f1f1;
     left: 1.17em;
 }
+
+@media (max-width:353px){
+    #prof{
+        height: 40px;
+        width: 40px;
+    }
+    #log{
+        height: 40px;
+        width: 40px;
+    }
+    .nav-link{
+        padding: 0.5rem 0.5rem !important;
+    }
+    .navbar>.container-fluid{
+        flex-wrap: initial;
+    }
+}
