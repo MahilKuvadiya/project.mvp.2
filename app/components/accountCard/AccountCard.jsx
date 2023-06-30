@@ -73,7 +73,7 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
         <div className="card">
 
           <div class="bg-shape">
-            <Link className={classes.imgContainer} href={`/blog/${id}`}>
+            <Link className={classes.imgContainer} href={`/account/${id}`}>
               <img id='mainImg' src={imageUrl} width="420" height="200" alt='main Photo' />
             </Link>
             {/* <img src="assets/BGMI.webp" alt="" /> */}

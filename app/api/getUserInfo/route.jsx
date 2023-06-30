@@ -14,11 +14,10 @@ export async function POST(request) {
        },
     });
 
-    console.log(email)
     if (!data) {
       return NextResponse.sendStatus(404);
     }
-    console.log(data)
+    // console.log(data)
     return NextResponse.json(data);
   } catch (error) {
     return NextResponse.error(error, { status: 500 });
