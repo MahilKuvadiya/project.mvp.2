@@ -3,12 +3,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import classes from './AccountCard.module.css'
+import classes from './AccountCard.css'
 import Rating from '@mui/material/Rating';
 // import { useSession } from 'next-auth/react'
 // import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
 
-const AccountCard = ({ account: { title, accountName, image, gameName, id,price,specialFeature,email,description
+const AccountCard = ({ account: { title, accountName, image, gameName, id, price, specialFeature, email, description
 
 } }) => {
 
@@ -16,13 +16,13 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id,price,
 
   return (
     <>
-         <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'></script>
-        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        {/* <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script> */}
-        
-        {/* <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"/> */}
-        <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"></link>
+      {/* <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'></script>
+      <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script> */}
+      {/* <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script> */}
+
+      {/* <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"/> */}
+      <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"></link>
       {/* <div className={classes.container}>
         <div className={classes.wrapper}>
           <Link className={classes.imgContainer} href={`/blog/${id}`}>
@@ -37,13 +37,14 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id,price,
           </div>
         </div>
       </div> */}
-{/* <div className="container-fluid d-flex justify-content-center"> */}
-  {/* <div className="row mt-5" style={{justifyContent:'center'}}> */}
-      <div className="col-sm-4" style={{ minWidth: '400px' }}>
-        <div className="card">
+      {/* <div className="container-fluid d-flex justify-content-center">  */}
+      {/* <div className="row mt-5" style={{justifyContent:'center'}}> */}
+      {/* <div className="col-sm-4" style={{ minWidth: '400px' }}>
+        <div className={classes.card}>
+        <Link className={classes.imgContainer} href={`/blog/${id}`}>
             <Image src={imageUrl}className="card-img-top" width="350" height="250" alt='main Photo' />
-         
-          {/* <img src="assets/BGMI.webp" className="card-img-top" width="100%" /> */}
+          </Link>
+          {/* <img src="assets/BGMI.webp" className="card-img-top" width="100%" /> 
           <div className="card-body pt-0 px-0">
             <div className="d-flex flex-row justify-content-between mb-0 px-3">
               <small className="text-muted mt-1">STARTING AT</small>
@@ -61,13 +62,64 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id,price,
             <small className="text-muted key pl-3">Standard key Features</small>
             
             <div className="mx-3 mt-3 mb-2">
-
-            <Link className={classes.imgContainer} href={`/account/${id}`}>
-
-            <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>KNOW MORE</small></button>
-            </Link>
+            <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>BUY NOW</small></button>
+            
             </div>
             <small className="d-flex justify-content-center text-muted">*Legal Disclaimer</small>
+          </div>
+        </div>
+      </div> */}
+      <div id='colsm4' className="col-sm-4" style={{ maxWidth: '415px', height: '650px', marginInline:'18px' }}>
+        <div className="card">
+
+          <div class="bg-shape">
+            <Link className={classes.imgContainer} href={`/blog/${id}`}>
+              <img id='mainImg' src={imageUrl} width="420" height="200" alt='main Photo' />
+            </Link>
+            {/* <img src="assets/BGMI.webp" alt="" /> */}
+          </div>
+          <div class="product-slider__wrp swiper-wrapper" style={{ display: 'flex', justifyContent: 'center' }}>
+            <div id='cardBody' class="product-slider__item swiper-slide swiper-slide-active" style={{ width: '405px', opacity: '1', transform: 'translate3d(0px, 0px, 0px)' }}>                  <div class="product-slider__card">
+              <img
+                src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405223/starwars/item-4-bg.webp"
+                alt="star wars" class="product-slider__cover" />
+              <div class="product-slider__content">
+                <h1 class="product-slider__title">
+                  {title}
+                </h1>
+                <span class="product-slider__price">&#8377;{price}&#x2a;<sup>00</sup></span>
+                <span class="hr-vertical"></span>
+                <div class="product-ctr">
+                  <div class="product-labels">
+                    <div class="product-labels__title">DESCRIPTION</div>
+
+                    <div class="product-labels__group">
+                      <label class="product-labels__item">
+                        <span class="product-labels__txt">{description}</span>
+                      </label>
+
+
+                    </div>
+
+                  </div>
+                </div>
+                <span class="hr-vertical"></span>
+
+                <div class="product-slider__bottom">
+                  
+
+                    {/* <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>KNOW MORE</small></button> */}
+                  
+                  <Link className={classes.imgContainer} href={`/account/${id}`}>
+                  <button class="product-slider__cart">
+                    BUY NOW
+                  </button>
+                  </Link>
+
+                </div>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>

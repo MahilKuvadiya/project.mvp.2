@@ -19,7 +19,7 @@ const NavBar = () => {
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a href="#" class="navbar-brand"><img src="assets/onlyLogo.png" height="50px" width="50px"></img></a>
+          <a href="#" class="navbar-brand"><img id='log' src="assets/onlyLogo.png" height="50px" width="50px"></img></a>
 
           {/* <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar4" /> */}
           {/* <button type="button" class="navbar-toggler ml-auto custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -65,6 +65,7 @@ const NavBar = () => {
                 height={52}
                 className='rounded-circle'
                 alt='profile'
+                id='prof'
         />
         </a>
         </div>
