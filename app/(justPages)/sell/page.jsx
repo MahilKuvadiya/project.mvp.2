@@ -19,6 +19,8 @@ const CreateBlog = () => {
   const [specialFeature, setSpecialFeature] = useState('');
   const [priceString, setprice] = useState('');
   const [isCreating, setIsCreating] = useState(false);
+  const [gamingAccountID, setGamingAccountID] = useState('');
+  const [gamingAccountPassword, setGamingAccountPassword] = useState('');
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -65,6 +67,8 @@ const CreateBlog = () => {
         image: imageUrl,
         video: videoUrl,
         specialFeature: specialFeature,
+        gamingAccountID: gamingAccountID,
+        gamingAccountPassword: gamingAccountPassword,
       };
 
       const res = await axios.post('/api/addGamingAccount', data);
@@ -164,14 +168,14 @@ const CreateBlog = () => {
   const handleDescChange = (e) => {
     const { value, selectionStart, selectionEnd } = e.target;
     const maxLength = 100; // Maximum characters before inserting <br> tag
-  
+
     if (value.length <= maxLength) {
       setDesc(value);
     } else {
       const updatedValue =
         value.substring(0, maxLength) + '\n' + value.substring(maxLength);
       setDesc(updatedValue);
-  
+
       // Set the selection start and end to the appropriate positions
       if (selectionStart >= maxLength) {
         e.target.selectionStart = e.target.selectionEnd = maxLength + 1;
@@ -254,6 +258,21 @@ const CreateBlog = () => {
           <textarea
             placeholder="Add Any Special Feature..."
             onChange={(e) => setSpecialFeature(e.target.value)}
+          />
+
+          <div className="text">Gaming Account ID</div>
+          <input
+            className="accountId"
+            type="text"
+            placeholder="Gaming Account ID..."
+            onChange={(e) => setGamingAccountID(e.target.value)}
+          />
+          <div className="text">Gaming Account Password</div>
+          <input
+            className="accountPassword"
+            type="password"
+            placeholder="Gaming Account Password..."
+            onChange={(e) => setGamingAccountPassword(e.target.value)}
           />
           <button className="createBlog" disabled={isCreating}>
             {isCreating ? 'Creating...' : 'Create'}
