@@ -21,7 +21,7 @@ const NavBar = () => {
       <nav className="navbar navbar-expand-lg">
         <div className="contai">
           <div>
-          <a href="#" className="navbar-brand"><img id='log' src="assets/onlyLogo.png" height="50px" width="50px"></img></a>
+          <a href="/" className="navbar-brand"><img id='log' src="assets/onlyLogo.png" height="50px" width="50px"></img></a>
           </div>
           
           {/* <button className="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar4" /> */}
@@ -58,7 +58,7 @@ const NavBar = () => {
                 
               <div style={{display:'flex',justifyContent: 'center'}}>
               <div>
-              <a href="#" className="nav-item nav-link" style={{color:'grey'}}>Profile</a>
+              <a href="/profile" class="nav-item nav-link" style={{color:'grey'}}>Profile</a>
               </div>
         <a className="nav-item nav-link" style={{ paddingLeft: '20px', borderLeft: '1px solid white',color:'white' }} onClick={() => signOut()}>Sign Out</a>
         <a href="/dashboard">

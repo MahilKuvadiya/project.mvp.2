@@ -37,7 +37,8 @@ export default function Dashboard() {
     };
     try {
       await axios.put('/api/updateUser', data);
-      toast.success('Your profile is completed.');
+      toast.success('Your profile is completed.')
+      .then(()=>router.push('/'));
     } catch (error) {
       toast.error('Something went wrong!');
     }

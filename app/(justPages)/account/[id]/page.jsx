@@ -1,6 +1,5 @@
 'use client'
-
-import React from 'react'
+import React from 'react';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
@@ -16,9 +15,10 @@ import './account.css'
 import "swiper/swiper.min.css";
 const page = (ctx) => {
 
-    const { data: session, status } = useSession();
-    const [account, setAccount] = useState();
-    const [isLoading, setIsLoading] = useState(true);
+const Page = (ctx) => {
+  const { data: session, status } = useSession();
+  const [account, setAccount] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
 
