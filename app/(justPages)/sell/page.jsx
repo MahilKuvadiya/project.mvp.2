@@ -260,20 +260,21 @@ const CreateBlog = () => {
             onChange={(e) => setSpecialFeature(e.target.value)}
           />
 
-          <div className="text">Gaming Account ID</div>
+          <div className="text">Gaming Account ID <small>(Optional)</small></div>
           <input
             className="accountId"
             type="text"
             placeholder="Gaming Account ID..."
             onChange={(e) => setGamingAccountID(e.target.value)}
           />
-          <div className="text">Gaming Account Password</div>
+          <div className="text">Gaming Account Password <small>(Optional)</small></div>
           <input
             className="accountPassword"
             type="password"
             placeholder="Gaming Account Password..."
             onChange={(e) => setGamingAccountPassword(e.target.value)}
           />
+          <small>Note*- 20% of Amount from your sold account will be cut as MVP Trade's commission</small>
           <button className="createBlog" disabled={isCreating}>
             {isCreating ? 'Creating...' : 'Create'}
           </button>

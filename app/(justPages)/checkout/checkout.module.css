@@ -1,0 +1,148 @@
+
+.container {
+  margin-top: 5rem;
+  height: calc(100vh - 60px);
+  width: 100%;
+  height: 100%;
+  /* margin: 0px !important; */
+  /* padding: 0px !important; */
+  font-family: 'Barlow', sans-serif;
+}
+@media (min-width: 768px){
+ .container {
+    max-width: 760px;
+}
+}
+#conta {
+  margin-top: 5rem;
+  height: calc(100vh - 60px);
+  width: 100%;
+  height: 100%;
+  /* margin: 0px !important; */
+  /* padding: 0px !important; */
+  font-family: 'Barlow', sans-serif;
+}
+@media (min-width: 768px){
+ .container {
+    max-width: 760px;
+}
+}
+  
+.wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wrapper p{
+  font-size: xx-large;
+}
+  
+  .wrapper > h2 {
+    font-size: 37px;
+    color: #c8c6c6;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+  }
+  
+  .wrapper > .box {
+    background-color:rgba(255,255,255,0.13);;
+    width: 50%;
+    padding: 1.5rem;
+    border: 1px solid #432c2c69;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+  }
+  @media (max-width:520px){
+    .wrapper > .box{
+      width: 100%;
+    }
+  }
+  @media (min-width:521px) and (max-width:993px){
+    .wrapper > .box{
+      width: 90%;
+    }
+  }
+
+.game {
+  font-size:xx-large;
+  color: #c8c6c6;
+  border-bottom: 1px solid gray;
+}
+
+.fee{
+  font-size: x-large;
+  color: #cc3843;
+}
+
+.total{
+  font-size: xx-large;
+  color: #c8c6c6;
+}
+  
+  .place {
+    width: 100%;
+    margin-top: 2.5rem;
+    outline: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1.25rem;
+    font-size: 18px;
+    border-radius: 5px;
+    background-image: linear-gradient(-45deg, #cc3843 0%, #cb193f 100%);
+    color: #d6d5d5;
+    cursor: pointer;
+    transition: 150ms;
+  }
+  
+  .place:hover {
+    background-color: #c8c6c6;
+    background-image: linear-gradient(-45deg, #f63845 0%, #e11440 100%);
+  }
+  @media (max-width:572px){
+    .wrapper p{
+        font-size: 4vw;
+    }
+    .fee{
+        font-size: 3vw;
+    }
+    /* h2{
+        font-size: 5vw;
+    } */
+  }
+
+.main{
+    /* background-color: rgba(39, 145, 216,0.710); */
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    top: 0;
+}
+.popup{
+    height: 400px;
+    width: 50%;
+    background-color: white;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+}@media (max-width:574px){
+.popup{
+  height: 250px;
+  width: 90%;
+  background-color: white;
+  position: absolute;
+  top: 25%;
+  right: 5%;
+}
+}
+.popupheader{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 0 15px;
+    border-bottom: 2px solid black;
+}
+
