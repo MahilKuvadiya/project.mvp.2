@@ -40,12 +40,6 @@ export default function Accounts() {
     }
   }, [gameName, accounts]);
 
-  useEffect(() => {
-    const message = document.querySelector('.dancing-message');
-    setTimeout(() => {
-      message.style.display = 'none';
-    }, 10000);
-  }, []);
 
   return (
     <div className="container-fluid d-flex justify-content-center">
@@ -77,15 +71,11 @@ export default function Accounts() {
           <h3 className={classes.noBlogs}>No Accounts</h3>
         )}
       </div>
-      {session?.user ? (
-        <div className="dancing-message">
-          <span className="arrow"></span>Complete Your Profile
-        </div>
-      ) : (
-        <div className="dancing-message">
-          <span className="arrow" style={{ left: '0.55em' }}></span>Sign In Here
-        </div>
-      )}
+      {/* {session?.user?(
+                    <div class="dancing-message"><span className='arrow'></span>Complete Your Profile</div>
+                                ):(
+                                    <div class="dancing-message"><span className='arrow' style={{left:'0.55em'}}></span>Sign In Here</div>
+                                    )} */}
     </div>
   );
 }

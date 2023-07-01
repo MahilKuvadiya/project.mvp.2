@@ -161,6 +161,24 @@ const CreateBlog = () => {
     const files = Array.from(e.target.files);
     setImages(files);
   };
+  const handleDescChange = (e) => {
+    const { value, selectionStart, selectionEnd } = e.target;
+    const maxLength = 100; // Maximum characters before inserting <br> tag
+  
+    if (value.length <= maxLength) {
+      setDesc(value);
+    } else {
+      const updatedValue =
+        value.substring(0, maxLength) + '\n' + value.substring(maxLength);
+      setDesc(updatedValue);
+  
+      // Set the selection start and end to the appropriate positions
+      if (selectionStart >= maxLength) {
+        e.target.selectionStart = e.target.selectionEnd = maxLength + 1;
+      }
+    }
+    setDesc(e.target.value);
+  };
 
   return (
     <div className="container">
@@ -183,11 +201,13 @@ const CreateBlog = () => {
               placeholder="Account Name..."
               onChange={(e) => setAccountName(e.target.value)}
             />
-            <div className="text">Description</div>
+            <div className='text'>Description</div>
           </div>
           <textarea
             placeholder="Description..."
-            onChange={(e) => setDesc(e.target.value)}
+            // onChange={(e) => setDesc(e.target.value)}
+            // onKeyDown={handleDescKeyUp}
+            onChange={handleDescChange}
           />
           <div className="text">Select Game</div>
           <select value={gameName} onChange={(e) => setgameName(e.target.value)}>
@@ -198,7 +218,7 @@ const CreateBlog = () => {
             <option value="BGMI">BGMI</option>
           </select>
           <div className="inputGroup">
-            <div className="text">Upload Image/Video</div>
+            <div className='text'>Upload Image/Video</div>
             <label htmlFor="image">
               Upload Image <AiOutlineFileImage />
             </label>
