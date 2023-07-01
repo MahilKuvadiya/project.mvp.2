@@ -58,7 +58,7 @@ const NavBar = () => {
                 
               <div style={{display:'flex',justifyContent: 'center'}}>
               <div>
-              <a href="/profile" class="nav-item nav-link" style={{color:'grey'}}>Profile</a>
+              <a href="/profile" className="nav-item nav-link" style={{color:'grey'}}>Profile</a>
               </div>
         <a className="nav-item nav-link" style={{ paddingLeft: '20px', borderLeft: '1px solid white',color:'white' }} onClick={() => signOut()}>Sign Out</a>
         <a href="/dashboard">

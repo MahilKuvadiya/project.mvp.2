@@ -40,12 +40,6 @@ export default function Accounts() {
     }
   }, [gameName, accounts]);
 
-  useEffect(() => {
-    const message = document.querySelector('.dancing-message');
-    setTimeout(() => {
-      message.style.display = 'none';
-    }, 10000);
-  }, []);
 
   return (
     <div className="container-fluid d-flex justify-content-center">

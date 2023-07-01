@@ -130,6 +130,9 @@ const Page = (ctx) => {
         // }
         fetchAccountInfo();
     }, [session]);
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
  JSON.stringify(account)
  const title = account?.title
  
@@ -689,6 +692,7 @@ const specialFeature = account?.specialFeature
       {/* <Script  src="./swipe.js"></Script> */}
     </>
   )
+}
 }
 
 export default page
