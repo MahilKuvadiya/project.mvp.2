@@ -29,7 +29,7 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
       <div id='colsm4' className="col-sm-4" style={{ maxWidth: '415px', height: '650px', marginInline:'18px' }}>
         <div id='card1' className="card">
 
-          <div class="bg-shape">
+          <div id='bgShape' class="bg-shape1">
             <Link className={classes.imgContainer} href={`/account/${id}`}>
               <img id='mainImg' src={imageUrl} width="420" height="200" alt='main Photo' />
             </Link>

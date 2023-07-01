@@ -13,7 +13,6 @@ import './account.css'
 // import Video from '../../../../public/assets/video.mp4'
 
 import "swiper/swiper.min.css";
-const page = (ctx) => {
 
 const Page = (ctx) => {
   const { data: session, status } = useSession();
@@ -130,9 +129,9 @@ const Page = (ctx) => {
         // }
         fetchAccountInfo();
     }, [session]);
-    if (isLoading) {
-      return <div>Loading...</div>;
-    }
+    // if (isLoading) {
+    //   return <div>Loading...</div>;
+    // }
  JSON.stringify(account)
  const title = account?.title
  
@@ -693,9 +692,8 @@ const specialFeature = account?.specialFeature
     </>
   )
 }
-}
 
-export default page
+export default Page
 
 
 
