@@ -211,7 +211,7 @@ a{
     left: 1.17em;
 }
 
-@media (max-width:353px){
+@media (max-width:363px){
     #prof{
         height: 40px;
         width: 40px;
@@ -224,6 +224,10 @@ a{
         padding: 0.5rem 0.5rem !important;
     }
     .navbar>.container-fluid{
-        flex-wrap: initial;
+
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: flex-end !important;
     }
 }

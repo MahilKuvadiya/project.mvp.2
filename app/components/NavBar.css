@@ -1,0 +1,12 @@
+.navbar>.container-fluid{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: flex-end !important;
+}
+.contai{
+    width: 100%;
+    margin-inline: 15px;
+    display: flex;
+    justify-content: space-between !important;
+}
