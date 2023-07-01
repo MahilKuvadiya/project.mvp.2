@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
   const body = await request.json();
 
-  const { title, accountName, gameName,priceString, email, description, image,video, specialFeature } = body;
+  const { title, accountName, gameName,priceString, email, description, image,video, specialFeature,gamingAccountID,gamingAccountPassword } = body;
   
   // console.log(priceString)
   const price = parseInt(priceString);
@@ -32,7 +32,9 @@ export async function POST(request) {
         description,
         image,
         video,
-        specialFeature
+        specialFeature,
+        gamingAccountID,
+        gamingAccountPassword
       }
     });
     return NextResponse.json(gamingAccount);

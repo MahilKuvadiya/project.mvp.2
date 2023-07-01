@@ -17,19 +17,9 @@ import "swiper/swiper.min.css";
 const Page = (ctx) => {
   const { data: session, status } = useSession();
   const [account, setAccount] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-
-
-
-
-
-
-
-
-
-
 
       var swiper = new Swiper('.product-slider', {
         spaceBetween: 30,
@@ -91,19 +81,6 @@ const Page = (ctx) => {
         $(this).find('.heart').toggleClass("is-active");
       });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         async function fetchAccountInfo() {
           try {
             const data = {
@@ -112,26 +89,18 @@ const Page = (ctx) => {
     
             const response = await axios.post('/api/getParticularAccount', data);
             setAccount(response.data);
+            console.log(account)
           } catch (error) {
             console.error(error);
-          } finally {
-            setIsLoading(false);
-          }
+          } 
         }
     
 
-
-
-
-
-        // if (session?.user?.email) {
-        //   setUserEmail(session.user.email);
-        // }
         fetchAccountInfo();
     }, [session]);
-    // if (isLoading) {
-    //   return <div>Loading...</div>;
-    // }
+    // // if (isLoading) {
+    // //   return <div>Loading...</div>;
+    // // }
  JSON.stringify(account)
  const title = account?.title
  
@@ -692,6 +661,7 @@ const specialFeature = account?.specialFeature
     </>
   )
 }
+
 
 export default Page
 

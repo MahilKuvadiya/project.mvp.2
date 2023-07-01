@@ -58,6 +58,11 @@ model GamingAccount {
   specialFeature String?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
+  gamingAccountID String?
+  gamingAccountPassword String?
+  futureUseField1   String?
+  futureUseField2   String?
+  futureUseField3   String?
 }
 
 // model Image {
