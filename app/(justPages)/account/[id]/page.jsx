@@ -9,10 +9,9 @@ import 'swiper/css';
 import $ from "jquery";
 import Script from "next/script";
 import './account.css'
-import { Order } from '../../checkout/page'
+import Order from '../../../components/checkout/page'
 
 import "swiper/swiper.min.css";
-import { toast } from 'react-hot-toast';
 
 const Page = (ctx) => {
   // const router = useRouter();
