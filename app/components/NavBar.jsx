@@ -6,6 +6,7 @@ import { signOut } from 'next-auth/react'
 import Image from "next/image";
 import '../pag123.css'
 import './NavBar.css'
+
 // import '../../app/pag.css'
 // const style1 = { display: 'flex', justifycontent: 'center', flexdirection: 'row', alignitems: 'center', margininline: '10px' }
 const NavBar = () => {

@@ -114,6 +114,38 @@
         font-size: 5vw;
     } */
   }
+  @media (max-width:572px){
+    .main p{
+        font-size: 3.2vw !important;
+    }
+    .main a{
+        font-size: 3.2vw !important;
+    }
+  }
+  @media (max-width:472px){
+    .main p{
+        font-size: 4vw !important;
+    }
+    .main a{
+        font-size: 3.2vw !important;
+    }
+  }
+  .main canvas{
+    height: 180px !important;
+    width: 180px !important;
+  }
+  @media (max-width:815px){
+    .main canvas{
+      height: 130px !important;
+      width: 130px !important;
+    }
+  }
+  @media (max-width:474px){
+    .main canvas{
+      height: 100px !important;
+      width: 100px !important;
+    }
+  }
 
 .main{
     /* background-color: rgba(39, 145, 216,0.710); */
@@ -129,9 +161,10 @@
     position: absolute;
     top: 25%;
     right: 25%;
-}@media (max-width:574px){
+}
+@media (max-width:574px){
 .popup{
-  height: 250px;
+  height: 350px;
   width: 90%;
   background-color: white;
   position: absolute;
@@ -139,6 +172,36 @@
   right: 5%;
 }
 }
+@media (max-width:492px){
+  .popup{
+    height: 320px;
+    width: 90%;
+    background-color: white;
+    position: absolute;
+    top: 25%;
+    right: 5%;
+  }
+  }
+  @media (max-width:358px){
+    .popup{
+      height: 280px;
+      width: 90%;
+      background-color: white;
+      position: absolute;
+      top: 25%;
+      right: 5%;
+    }
+    }
+    @media (max-width:242px){
+      .popup{
+        height: 250px;
+        width: 90%;
+        background-color: white;
+        position: absolute;
+        top: 25%;
+        right: 5%;
+      }
+      }
 .popupheader{
     display: flex;
     justify-content: space-between;
