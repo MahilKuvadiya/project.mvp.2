@@ -52,13 +52,11 @@ export default function Accounts() {
           <div className={classes.loader}></div> // Display the loader
         ) : (
           <>
-
             {accounts.length > 0 ? (
               accounts.map((account) => <AccountCard key={account.id} account={account} />)
             ) : (
               <h3 className={classes.noBlogs}>No Accounts</h3>
             )}
-
           </>
         )}
       </div>
