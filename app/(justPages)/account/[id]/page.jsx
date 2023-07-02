@@ -9,10 +9,9 @@ import 'swiper/css';
 import $ from "jquery";
 import Script from "next/script";
 import './account.css'
-import {Order} from '../../checkout/page'
+import Order from '../../../components/checkout/page'
 
 import "swiper/swiper.min.css";
-import { toast } from 'react-hot-toast';
 
 const Page = (ctx) => {
   // const router = useRouter();
@@ -122,23 +121,14 @@ const Page = (ctx) => {
   const [showOrder, setShowOrder] = useState(false); // State variable to control visibility
 
   const handleBuyClick = () => {
-    if(status === 'unauthenticated'){
-      toast.error("Plaese login first.")
-    }else{
-      setShowOrder(true);
-    }
-  }; 
-
-  const checkOut = {
-    price : price,
-    accountName : accountName
-  }
+    setShowOrder(true);
+  };
 
   return (
     <>
     {/* <button onClick={handleBuyClick}>Buy</button> */}
 
-{showOrder && <Order key={checkOut} checkout={checkOut} />}
+{showOrder && <Order price={price} accountName={accountName} />}
     
       {/* <div>{accountJSON}</div> */}
       { !showOrder && <>
@@ -251,7 +241,7 @@ const Page = (ctx) => {
 
 
 
-                        <button className="product-slider__fav js-fav">&#x2713; Assured</button>
+                        <button className="product-slider__fav js-fav">&#128230;Easy Return</button>
                     </div>
                   </div>
                 </div>
