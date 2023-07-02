@@ -226,7 +226,7 @@ a {
 }
 
 .prev {
-  left: -30%;
+  left: -28%;
   transform: translate(-100%, -50%);
 }
 @media screen and (max-width: 1200px) {
@@ -410,7 +410,7 @@ a {
 }
 @media screen and (max-width: 1200px) {
   .product-slider__content {
-    padding-left: 220px;
+    padding-left: 328px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -666,7 +666,7 @@ a {
   position: absolute;
   z-index: 2;
   width: 495px;
-  left: 19%;
+  left: 20%;
   transform: translateX(-45%);
   
   height: 100%;
@@ -675,7 +675,7 @@ a {
 @media screen and (max-width: 1200px) {
   .product-img {
     width: 430px;
-    left: 20%;
+    left: 25%;
   }
 }
 @media screen and (max-width: 992px) {

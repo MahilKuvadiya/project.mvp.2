@@ -93,8 +93,6 @@ export const Order =({price,accountName}) => {
 
                             <input type="text" name="accountName" value={accountName} style={{ display: 'none' }} />
 
-                            <img src="cid:assets/payment.png" alt="9825614606@okbizaxis" name="image" style={{ display: 'none' }} />
-
                             {/* <button type="submit" value="Send" /> */}
                             <button type='submit' value='Send' className={styles.place} onClick={handleClickOpen}>Place</button>
                         </form>
@@ -129,7 +127,7 @@ export const Order =({price,accountName}) => {
                             <div style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
                             <Canvas
                             id='qr'
-                                text={`upi://pay?pa=9825614606@okbizaxis&pn=MVP%20Trade&mc=1234&tid=9876543210&tn=Payment%20for%20MVP%20Order&am=${price}&cu=INR`}
+                                text={`upi://pay?pa=9825614606@okbizaxis&pn=MVP%20Trade&mc=1234&tid=9876543210&tn=Payment%20for%20MVP%20Order&am=${Total}&cu=INR`}
                                 options={{
                                     level: 'M',
                                     margin: 3,

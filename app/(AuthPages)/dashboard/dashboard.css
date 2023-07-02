@@ -108,8 +108,8 @@ button{
     border-radius: 12px !important;
     /* margin-top: 50px; */
     width: 95px;
-    background-color: #ffffff;
-    color: #080710 !important;
+    background-image: linear-gradient(-45deg, #cc3843 0%, #cb193f 100%);
+    color: #ffffff !important;
     padding: 15px 0;
     font-size: 18px;
     font-weight: 600;

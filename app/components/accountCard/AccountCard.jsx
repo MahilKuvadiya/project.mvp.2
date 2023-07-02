@@ -13,6 +13,26 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
 } }) => {
 
   const imageUrl = image[0]
+  const desc = description
+
+  const lineLength = 25; // Maximum number of characters in each line
+
+  let formattedDescription = '';
+  let line = '';
+  for (let i = 0; i < desc.length; i++) {
+    line += desc[i];
+    if (line.length === lineLength) {
+      formattedDescription += line + '\n';
+      line = '';
+    } else if (line.length > lineLength) {
+      formattedDescription += line.substring(0, line.length - 1) + '\n';
+      line = desc[i];
+    }
+  }
+  if (line.length > 0) {
+    formattedDescription += line;
+  }
+
 
   return (
 
@@ -23,10 +43,10 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
       {/* <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
 
       {/* <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"/> */}
-      
-      
+
+
       <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"></link>
-      <div id='colsm4' className="col-sm-4" style={{ maxWidth: '415px', height: '650px', marginInline:'18px' }}>
+      <div id='colsm4' className="col-sm-4" style={{ maxWidth: '415px', height: '650px', marginInline: '18px' }}>
         <div id='card1' className="card">
 
           <div id='bgShape' class="bg-shape1">
@@ -35,7 +55,7 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
             </Link>
           </div>
           <div id='productSlider' className="product-slider__wrp1 swiper-wrapper" style={{ display: 'flex', justifyContent: 'center' }}>
-            <div id='cardBody'className="product-slider__item1 swiper-slide swiper-slide-active" style={{ width: '405px', opacity: '1', transform: 'translate3d(0px, 0px, 0px)' }}>                  <div className="product-slider__card">
+            <div id='cardBody' className="product-slider__item1 swiper-slide swiper-slide-active" style={{ width: '405px', opacity: '1', transform: 'translate3d(0px, 0px, 0px)' }}>                  <div className="product-slider__card">
               <img
                 src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405223/starwars/item-4-bg.webp"
                 alt="star wars" className="product-slider__cover1" />
@@ -51,7 +71,7 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
 
                     <div className="product-labels__group1">
                       <label className="product-labels__item1">
-                        <span className="product-labels__txt1">{description}</span>
+                        <span className="product-labels__txt1">{formattedDescription}</span>
                       </label>
 
 
@@ -62,14 +82,14 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
                 <span className="hr-vertical1"></span>
 
                 <div className="product-slider__bottom1">
-                  
 
-                    {/* <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>KNOW MORE</small></button> */}
-                  
+
+                  {/* <button type="button" className="btn btn-danger btn-block" style={{ width: '100%' }}><small>KNOW MORE</small></button> */}
+
                   <Link className={classes.imgContainer} href={`/account/${id}`}>
-                  <button className="product-slider__cart1">
-                    BUY NOW
-                  </button>
+                    <button className="product-slider__cart1">
+                      BUY NOW
+                    </button>
                   </Link>
 
                 </div>

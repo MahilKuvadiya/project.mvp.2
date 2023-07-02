@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
 import AccountCard from 'app/components/accountCard/AccountCard';
-import classes from './profile.css';
+import './profile.css';
 import { useRouter } from 'next/navigation';
 import User from '../../components/User';
 
@@ -45,21 +45,30 @@ export default function Accounts() {
   }, [session]);
 
   return (
-
+<div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
     <div className="container-fluid d-flex justify-content-center">
       <div className="row mt-5" style={{ justifyContent: 'center' }}>
         {isLoading ? (
-          <div className={classes.loader}></div> // Display the loader
+          <div className="loader"></div> // Display the loader
         ) : (
           <>
             {accounts.length > 0 ? (
+              
               accounts.map((account) => <AccountCard key={account.id} account={account} />)
+              
             ) : (
-              <h3 className={classes.noBlogs}>No Accounts</h3>
+              <>
+              <h3 className="text-center" style={{color:'white'}}>No Accounts</h3>
+              <a className='btn' id='b3' href='/sell'> Sell Account Now</a>
+              </>
             )}
           </>
         )}
       </div>
     </div>
+    <div>
+        <a className='btn' id='b3' href='/sell' style={{fontSize:'3vmin',marginTop:'40px', maxHeight:'65px',alignItems:'center'}}> Sell More Account </a>
+        </div>
+        </div>
   );
 }

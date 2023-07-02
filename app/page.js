@@ -103,12 +103,12 @@ export default function Accounts() {
         {/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/> */}
         {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> */}
 
-        <div class="container" id="logo">
+        <div class="home" id="logo">
           <img class="my-logo desktop-logo" src="assets/components-logo.png" alt="Desktop logo" />
           <img class="my-logo tab-logo" src="assets/components-logo-mobile.png" alt="Tablate logo" />
           <img class="my-logo mobile-logo" src="assets/components-logo-mobile.png" alt="Mobile logo" />
         </div>
-        <div class="container" id="component">
+        <div class="home" id="component">
 
           <img class="my-img desktop-img" src="assets/components-imaes.png" alt="Desktop Image" />
           <img class="my-img mobile-img" src="assets/components-images-mobile.png" alt="Mobile Image" />
@@ -166,8 +166,8 @@ export default function Accounts() {
               {isLoadingMore ? (
                 <div className={classes.loader}></div>
               ) : (visibleAccounts === accounts.length ? (
-                <button className="btn" id='b3' onClick={handleSeeMore}>
-                  See More
+                <button className="btn" id='b3' style={{width:'90%' , marginTop:'20px'}} onClick={handleSeeMore}>
+                  See More &#x2B9F;
                 </button>
 
 
