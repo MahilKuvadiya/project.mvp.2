@@ -127,13 +127,18 @@ const Page = (ctx) => {
     }else{
       setShowOrder(true);
     }
-  };
+  }; 
+
+  const checkOut = {
+    price : price,
+    accountName : accountName
+  }
 
   return (
     <>
     {/* <button onClick={handleBuyClick}>Buy</button> */}
 
-{showOrder && <Order price={price} accountName={accountName} />}
+{showOrder && <Order key={checkOut} checkout={checkOut} />}
     
       {/* <div>{accountJSON}</div> */}
       { !showOrder && <>

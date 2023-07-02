@@ -24,11 +24,11 @@ console.log(userEmailVar)
 return NextResponse.json(user)
 }
 
-export async function userEmail(){
-    var email =  userEmailVar;
-    console.log(userEmailVar)
-    return email;
-}
+// export async function userEmail(){
+//     var email =  userEmailVar;
+//     console.log(userEmailVar)
+//     return email;
+// }
 //   export const updateduser = await client.user.update({
 //     where : {
 //         email : "mahilpatel6858@gmail.com"

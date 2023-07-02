@@ -9,7 +9,7 @@ import { useQRCode } from 'next-qrcode';
 
 
 
-export const Order =({price,accountName}) => {
+export const Order =({checkout : {price ,accountName}}) => {
     const { data: session } = useSession();
     const { Canvas } = useQRCode();
     
@@ -160,4 +160,4 @@ export const Order =({price,accountName}) => {
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<Order />);
 
-export default Order;
+// export default Order;
