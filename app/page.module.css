@@ -78,3 +78,20 @@
 .noMoreAccounts {
   color: white;
 }
+.seeMoreButton{
+  
+    box-sizing: border-box;
+    height: 5vw;
+    width: 5vw;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 1px 1px 0px;
+    transform: rotate(45deg);
+    transition: border-width 150ms ease-in-out;
+  
+  
+}
+.seeMoreButton:hover {
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+}
