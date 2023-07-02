@@ -30,6 +30,7 @@ const CreateBlog = () => {
 
   useEffect(() => {
     if (anotherSession?.status === 'unauthenticated') {
+      toast.error('Please login first.');
       router.push('/');
     }
     if (phoneNumber === '') {
