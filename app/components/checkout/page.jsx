@@ -36,7 +36,7 @@ const Order =(checkout) => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_nt7qx5p', 'template_kk9ecn6', form.current, 'DSLTau84FUshDVOQ5')
+        emailjs.sendForm('service_s095m1t', 'template_fw0utwe', form.current, '-BUOAVQst_4Y7HUiT')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
@@ -46,8 +46,7 @@ const Order =(checkout) => {
     };
     const sendEmail1 = (e) => {
         e.preventDefault();
-
-        emailjs.sendForm('service_nt7qx5p', 'template_a2xssk4', form.current, 'DSLTau84FUshDVOQ5')
+        emailjs.sendForm('service_s095m1t', 'template_mrn7kte', form.current, '-BUOAVQst_4Y7HUiT')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {

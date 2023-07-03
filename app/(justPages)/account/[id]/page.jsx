@@ -80,7 +80,6 @@ const Page = (ctx) => {
     $(".js-fav").on("click", function () {
       $(this).find('.heart').toggleClass("is-active");
     });
-
     async function fetchAccountInfo() {
       try {
         const data = {
@@ -149,6 +148,23 @@ const Page = (ctx) => {
   if (line.length > 0) {
     formattedDescription += line;
   }
+  let formattedSpecial = '';
+  let line1 = '';
+  if (specialFeature && specialFeature.length) {
+    for (let i = 0; i < specialFeature.length; i++) {
+      line1 += specialFeature[i];
+      if (line1.length === lineLength) {
+        formattedSpecial += line1 + '\n';
+        line1 = '';
+      } else if (line1.length > lineLength) {
+        formattedSpecial += line1.substring(0, line1.length - 1) + '\n';
+        line1 = specialFeature[i];
+      }
+    }
+  }
+  if (line1.length > 0) {
+    formattedSpecial += line1;
+  }
 
   return (
     <>
@@ -193,8 +209,7 @@ const Page = (ctx) => {
               </div>
 
               <div className="product-img__item" id="video">
-                <video alt="video" className="product-img__img" height='500px' width='500px' controls={true} autoPlay={"tru"} preload={'auto'} muted>
-                  <source src={video} type="video/mp4" />
+                <video alt="video" src={video} className="product-img__img" height='500px' width='500px' controls={false} autoPlay loop preload={'auto'} muted>
 
                 </video>
               </div>
@@ -236,36 +251,13 @@ const Page = (ctx) => {
 
                         </div>
 
-                        <span className="hr-vertical"></span>
-
-                        <div className="product-inf">
-                          <div className="product-inf__percent">
-                            <div className="product-inf__percent-circle">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-                                <defs>
-
-                                </defs>
-                              </svg>
-                            </div>
-                            <div className="product-inf__percent-txt">
-                              {specialFeature}
-                            </div>
-                          </div>
-
-                          {/* <span className="product-inf__title">5 Rare Skins</span> */}
-                        </div>
-
                       </div>
 
                       <div className="product-slider__bottom">
 
-
                         <button className="product-slider__cart" onClick={handleBuyClick}>
                           &#x1F6D2; BUY NOW
                         </button>
-
-
-
 
                         <button className="product-slider__fav js-fav">&#x2713; Assured</button>
                       </div>
@@ -279,10 +271,10 @@ const Page = (ctx) => {
                       <h1 className="product-slider__title" style={{ textAlign: 'center' }}>
                         {accountName}
                       </h1>
-                      <span className="product-slider__price" style={{ textAlign: 'center' }}>Description</span>
+                      <span className="product-slider__price" style={{ textAlign: 'center' }}>SPECIAL FEATURE</span>
                       <div className="product-ctr">
                         <div className="product-labels">
-                          <div className="product-labels__title" style={{ textAlign: 'center' }}>{formattedDescription}</div>
+                          <div className="product-labels__title" style={{ textAlign: 'center' }}>{formattedSpecial}</div>
                         </div>
 
 
@@ -306,6 +298,13 @@ const Page = (ctx) => {
                   <div className="product-slider__card">
                     <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405222/starwars/item-2-bg.webp" alt="star wars" className="product-slider__cover" />
                     <div className="product-slider__content">
+                    <span className="product-slider__price" style={{ textAlign: 'center' }}>Description</span>
+                      <div className="product-ctr">
+                        <div className="product-labels">
+                          <div className="product-labels__title" style={{ textAlign: 'center' }}>{formattedDescription}</div>
+                        </div>
+
+                      </div>
 
                       <div className="product-slider__bottom">
                         <button className="product-slider__cart" onClick={handleBuyClick}>
