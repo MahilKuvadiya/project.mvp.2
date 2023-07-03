@@ -141,7 +141,7 @@ const Order =(checkout) => {
                                     },
                                 }}
                             />
-                            <p style={{ color: 'black' }}>Pay:&#8377;{price}</p>
+                            <p style={{ color: 'black' }}>Pay:&#8377;{Total}</p>
                             <p style={{ color: 'black', marginBottom: '5px' ,fontSize:'1.5vw'}}>For More Queries Write Us On <a href='mailto:mvptrade42@gmail.com' id='atag' style={{fontSize:'1.5vw'}}>mvptrade42@gmail.com</a></p>
                             </div>
 

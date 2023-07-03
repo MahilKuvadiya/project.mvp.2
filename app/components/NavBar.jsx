@@ -6,6 +6,7 @@ import { signOut } from 'next-auth/react'
 import Image from "next/image";
 import '../pag123.css'
 import './NavBar.css'
+// import Logo from '../../public/assets/onlyLogo.png'
 
 // import '../../app/pag.css'
 // const style1 = { display: 'flex', justifycontent: 'center', flexdirection: 'row', alignitems: 'center', margininline: '10px' }
@@ -22,7 +23,7 @@ const NavBar = () => {
       <nav className="navbar navbar-expand-lg">
         <div className="contai">
           <div>
-          <a href="/" className="navbar-brand"><img id='log' src="assets/onlyLogo.png" height="50px" width="50px"></img></a>
+          <a href="/" className="navbar-brand"><img id='log' src="/assets/onlyLogo.png" height="50px" width="50px"></img></a>
           </div>
           
           {/* <button className="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar4" /> */}
