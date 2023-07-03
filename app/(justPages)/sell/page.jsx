@@ -22,6 +22,8 @@ const CreateBlog = () => {
   const [isCreating, setIsCreating] = useState(false);
   const [gamingAccountID, setGamingAccountID] = useState('');
   const [gamingAccountPassword, setGamingAccountPassword] = useState('');
+  const [specialFeatureCount, setSpecialFeatureCount] = useState(0);
+  const [descriptionCount, setDescriptionCount] = useState(0);
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -46,7 +48,7 @@ const CreateBlog = () => {
     e.preventDefault();
 
 
-    if (!title || !gameName || !desc || !accountName || !priceString) {
+    if (!title || !gameName || !desc || !accountName || !priceString || !specialFeature) {
       toast.error('All fields are required');
       return;
     }
@@ -170,28 +172,42 @@ const CreateBlog = () => {
     const files = Array.from(e.target.files);
     setImages(files);
   };
-  $('#spec').keyup(function() {
+  // $('#spec').keyup(function() {
     
-    var characterCount = $(this).val().length,
-        current = $('#spec-current'),
-        maximum = $('#spec-maximum'),
-        theCount = $('#the-count');
+  //   var characterCount = $(this).val().length,
+  //       current = $('#spec-current'),
+  //       maximum = $('#spec-maximum'),
+  //       theCount = $('#the-count');
       
-    current.text(characterCount);
+  //   current.text(characterCount);
         
-  });
-  $('#desc').keyup(function() {
+  // });
+  // $('#desc').keyup(function() {
     
-    var desccharacterCount = $(this).val().length,
-        current = $('#desc-current'),
-        maximum = $('#desc-maximum'),
-        theCount = $('#desc-count');
+  //   var desccharacterCount = $(this).val().length,
+  //       current = $('#desc-current'),
+  //       maximum = $('#desc-maximum'),
+  //       theCount = $('#desc-count');
       
-    current.text(desccharacterCount);
+  //   current.text(desccharacterCount);
         
-  });
+  // });
 
   // setDesc(e.target.value);
+
+  const handleSpecialFeatureChange = (e) => {
+    const specialFeature = e.target.value;
+    setSpecialFeature(specialFeature);
+    setSpecialFeatureCount(specialFeature.length);
+  };
+
+
+  const handleDescriptionChange = (e) => {
+    const description = e.target.value;
+    setDesc(description);
+    setDescriptionCount(description.length);
+  };
+
 
   return (
     <div className="container">
@@ -217,19 +233,22 @@ const CreateBlog = () => {
               onChange={(e) => setAccountName(e.target.value)}
             />
          </div>
-         <div style={{display:'flex' , justifyContent:'space-between',alignItems:'center'}}>
-            <div className="text">Special Feature</div>
-            <div id="desc-count">
-              <span id="spec-current" style={{color:'white'}}>0</span>
-              <span id="spec-maximum" style={{color:'white'}}>/ 250 <small>max</small></span>
-            </div>
+         <div className="form-group" id='SpeCount'>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <label htmlFor="spec" style={{border:'none',fontSize:'18px'}}>Special Feature</label>
+              <div id="the-count">
+                <span id="spec-current" style={{ color: 'white' }}>{specialFeatureCount}</span>
+                <span id="spec-maximum" style={{ color: 'white' }}>/ 250 <small>max</small></span>
+              </div>
             </div>
             <textarea
-              id='spec'
+              id="spec"
               maxLength={250}
               placeholder="Add Any Special Feature..."
-              onChange={(e) => setSpecialFeature(e.target.value)}
+              value={specialFeature}
+              onChange={handleSpecialFeatureChange}
             />
+          </div>
 
 
             <div className="text">Select Game</div>
@@ -288,19 +307,23 @@ const CreateBlog = () => {
                 onChange={(e) => setVideo(e.target.files[0])}
               />
             </div>
-            <div style={{display:'flex' , justifyContent:'space-between',alignItems:'center'}}>
-            <div className='text'>Description</div>
-          <div id="the-count">
-            <span id="desc-current" style={{color:'white'}}>0</span>
-            <span id="desc-maximum" style={{color:'white'}}>/ 350 <small>max</small></span>
+            <div className="form-group">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <label htmlFor="desc" style={{border:'none' , fontSize:'18px'}}>Description</label>
+              {/* <div className="text">Description</div> */}
+              <div id="the-count">
+                <span id="desc-current" style={{ color: 'white' }}>{descriptionCount}</span>
+                <span id="desc-maximum" style={{ color: 'white' }}>/ 350 <small>max</small></span>
+              </div>
+            </div>
+            <textarea
+              id="desc"
+              maxLength={350}
+              placeholder="Description..."
+              value={desc}
+              onChange={handleDescriptionChange}
+            />
           </div>
-          </div>
-          <textarea
-          id='desc'
-            maxLength={350}
-            placeholder="Description..."
-            onChange={(e) => setDesc(e.target.value)}
-          />
           
           <div className="text">Price</div>
           <div className="inputGroup">
