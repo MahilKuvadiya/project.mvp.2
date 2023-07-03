@@ -4,12 +4,15 @@ import firebase1 from 'firebase/app';
 import 'firebase/app';
 import React from 'react';
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
+import { useState } from 'react';
 // import { getAuth, signInWithPhoneNumber } from "firebase/auth";
 
 
 // export default function HomePage() {
 export default class page extends React.Component {
 
+    
     
     handleChange = (e) => {
         const { name, value } = e.target
@@ -40,18 +43,17 @@ export default class page extends React.Component {
             confirmationResult.confirm(code).then((result) => {
                 // User signed in successfully.
                 const user = result.user;
-                console.log("Otp Verified");
-                alert("Mobile Number is Verified");
+                toast.success("Otp Verified")
                 this.props.onOtpVerification(true);
                 // ...
             }).catch((error) => {
-                alert("Incorrect OTP Enter Again!!")
+                toast.error("Incorrect OTP Enter Again!!")
                 // User couldn't sign in (bad verification code?)
                 // ...
             });
             
         } catch (error) {
-            alert("Incorrect OTP Enter Again!!")
+            toast.error("Incorrect OTP Enter Again!!")
         }
     }
 

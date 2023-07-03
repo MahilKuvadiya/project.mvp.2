@@ -37,10 +37,13 @@ const CreateBlog = () => {
       toast.error('Complete your profile.');
       router.push('/dashboard');
     }
+
+    
   }, [anotherSession, phoneNumber]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
 
     if (!title || !gameName || !desc || !accountName || !priceString) {
       toast.error('All fields are required');
@@ -58,13 +61,14 @@ const CreateBlog = () => {
       const videoUrl = await uploadVideo();
 
       const email = session?.user?.email;
+      const descriptionWithLineBreaks = desc.replace(/\n/g, '<br>');
       const data = {
         title: title,
         accountName: accountName,
         gameName: gameName,
         priceString: priceString,
         email: email,
-        description: desc,
+        description: descriptionWithLineBreaks,
         image: imageUrl,
         video: videoUrl,
         specialFeature: specialFeature,
@@ -166,24 +170,8 @@ const CreateBlog = () => {
     const files = Array.from(e.target.files);
     setImages(files);
   };
-  const handleDescChange = (e) => {
-    const { value, selectionStart, selectionEnd } = e.target;
-    const maxLength = 100; // Maximum characters before inserting <br> tag
 
-    if (value.length <= maxLength) {
-      setDesc(value);
-    } else {
-      const updatedValue =
-        value.substring(0, maxLength) + '\n' + value.substring(maxLength);
-      setDesc(updatedValue);
-
-      // Set the selection start and end to the appropriate positions
-      if (selectionStart >= maxLength) {
-        e.target.selectionStart = e.target.selectionEnd = maxLength + 1;
-      }
-    }
-    setDesc(e.target.value);
-  };
+  // setDesc(e.target.value);
 
   return (
     <div className="container">
@@ -210,9 +198,9 @@ const CreateBlog = () => {
           </div>
           <textarea
             placeholder="Description..."
-            // onChange={(e) => setDesc(e.target.value)}
+            onChange={(e) => setDesc(e.target.value)}
             // onKeyDown={handleDescKeyUp}
-            onChange={handleDescChange}
+            // onChange={handleDescChange}
           />
           <div className="text">Select Game</div>
           <select value={gameName} onChange={(e) => setgameName(e.target.value)}>

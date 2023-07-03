@@ -19,7 +19,7 @@ const Footer = () => {
         <div>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
           <div class="rounded-social-buttons">
-            <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a>
+            <a class="social-button facebook" href="https://t.me/shopmvptrade_india" target="_blank"><i class="fa fa-telegram"></i></a>
             <a class="social-button twitter" href="https://twitter.com/MVPtrade?t=8oqyukjUKBz9nYYKUVyLQQ&s=08 " target="_blank"><i class="fa fa-twitter"></i></a>
             <a class="social-button linkedin" href="https://www.linkedin.com/company/mvptrade/" target="_blank"><i class="fa fa-linkedin"></i></a>
             {/* <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a> */}

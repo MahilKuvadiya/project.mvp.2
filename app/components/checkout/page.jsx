@@ -96,8 +96,6 @@ const Order =(checkout) => {
 
                             <input type="text" name="accountName" value={accountName} style={{ display: 'none' }} />
 
-                            <img src="cid:assets/payment.png" alt="9825614606@okbizaxis" name="image" style={{ display: 'none' }} />
-
                             {/* <button type="submit" value="Send" /> */}
                             <button type='submit' value='Send' className={styles.place} onClick={handleClickOpen}>Place</button>
                         </form>
@@ -132,7 +130,7 @@ const Order =(checkout) => {
                             <div style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
                             <Canvas
                             id='qr'
-                                text={`upi://pay?pa=9825614606@okbizaxis&pn=MVP%20Trade&mc=1234&tid=9876543210&tn=Payment%20for%20MVP%20Order&am=${price}&cu=INR`}
+                                text={`upi://pay?pa=9825614606@okbizaxis&pn=MVP%20Trade&mc=1234&tid=9876543210&tn=Payment%20for%20MVP%20Order&am=${Total}&cu=INR`}
                                 options={{
                                     level: 'M',
                                     margin: 3,
@@ -143,7 +141,7 @@ const Order =(checkout) => {
                                     },
                                 }}
                             />
-                            <p style={{ color: 'black' }}>Pay:&#8377;{price}</p>
+                            <p style={{ color: 'black' }}>Pay:&#8377;{Total}</p>
                             <p style={{ color: 'black', marginBottom: '5px' ,fontSize:'1.5vw'}}>For More Queries Write Us On <a href='mailto:mvptrade42@gmail.com' id='atag' style={{fontSize:'1.5vw'}}>mvptrade42@gmail.com</a></p>
                             </div>
 
