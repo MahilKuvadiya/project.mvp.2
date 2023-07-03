@@ -80,7 +80,6 @@ const Page = (ctx) => {
     $(".js-fav").on("click", function () {
       $(this).find('.heart').toggleClass("is-active");
     });
-
     async function fetchAccountInfo() {
       try {
         const data = {
@@ -193,8 +192,7 @@ const Page = (ctx) => {
               </div>
 
               <div className="product-img__item" id="video">
-                <video alt="video" className="product-img__img" height='500px' width='500px' controls={true} autoPlay={"tru"} preload={'auto'} muted>
-                  <source src={video} type="video/mp4" />
+                <video alt="video" src={video} className="product-img__img" height='500px' width='500px' controls={false} autoPlay loop preload={'auto'} muted>
 
                 </video>
               </div>
