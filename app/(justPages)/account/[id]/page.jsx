@@ -10,7 +10,7 @@ import $ from "jquery";
 import Script from "next/script";
 import './account.css'
 import Order from '../../../components/checkout/page'
-
+import { toast } from 'react-hot-toast';
 import "swiper/swiper.min.css";
 
 const Page = (ctx) => {
@@ -121,8 +121,11 @@ const Page = (ctx) => {
   const [showOrder, setShowOrder] = useState(false); // State variable to control visibility
 
   const handleBuyClick = () => {
-    setShowOrder(true);
-  };
+    if(status === 'unauthenticated'){
+      toast.error("Plaese login first.")
+    }else{
+      setShowOrder(true);
+    }  };
 
   return (
     <>
@@ -241,7 +244,7 @@ const Page = (ctx) => {
 
 
 
-                        <button className="product-slider__fav js-fav">&#128230;Easy Return</button>
+                        <button className="product-slider__fav js-fav">&#x2713; Assured</button>
                     </div>
                   </div>
                 </div>
