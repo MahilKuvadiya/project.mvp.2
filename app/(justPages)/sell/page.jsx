@@ -45,7 +45,7 @@ const CreateBlog = () => {
     e.preventDefault();
 
 
-    if (!title || !gameName || !desc || !accountName || !priceString) {
+    if (!title || !gameName || !desc || !accountName || !priceString || !specialFeature) {
       toast.error('All fields are required');
       return;
     }
