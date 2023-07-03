@@ -292,7 +292,7 @@ const CreateBlog = () => {
             <div className='text'>Description</div>
           <div id="the-count">
             <span id="desc-current" style={{color:'white'}}>0</span>
-            <span id="desc-maximum" style={{color:'white'}}>/ 500 <small>max</small></span>
+            <span id="desc-maximum" style={{color:'white'}}>/ 350 <small>max</small></span>
           </div>
           </div>
           <textarea
