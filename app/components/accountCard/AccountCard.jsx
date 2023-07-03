@@ -13,7 +13,7 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
 } }) => {
 
   const imageUrl = image[0]
-  const desc = description
+  const desc = specialFeature
 
   const lineLength = 25; // Maximum number of characters in each line
 
@@ -46,8 +46,8 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
 
 
       <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css"></link>
-      <div id='colsm4' className="col-sm-4" style={{ maxWidth: '415px', height: '650px', marginInline: '18px' }}>
-        <div id='card1' className="card">
+      <div id='colsm4' className="col-sm-4" style={{ maxWidth: '415px', marginInline: '18px' }}>
+        <div id='card1' className="card" style={{display:'flex', flexDirection:'column'}}>
 
           <div id='bgShape' class="bg-shape1">
             <Link className={classes.imgContainer} href={`/account/${id}`}>
@@ -76,8 +76,10 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
 
 
                     </div>
+                    
 
                   </div>
+                  
                 </div>
                 <span className="hr-vertical1"></span>
 

@@ -17,6 +17,7 @@
   border: none !important;
   background: none !important;
 }
+
 /* body {
   font-family: "Uni Sans", sans-serif;
   font-weight: 500;
@@ -110,7 +111,7 @@ a {
   /* border-radius: 20px; */
   /* padding: 30px; */
   width: 100%;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 44%;
   display: flex;
@@ -342,7 +343,7 @@ a {
 } */
 .product-slider__wrp1 {
   height: 100%;
-  top: 160px;
+  /* top: 160px; */
   justify-content: center;
 }
 
