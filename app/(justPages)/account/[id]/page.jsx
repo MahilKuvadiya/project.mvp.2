@@ -10,6 +10,7 @@ import $ from "jquery";
 import Script from "next/script";
 import './account.css'
 import Order from '../../../components/checkout/page'
+import { toast } from 'react-hot-toast';
 
 import "swiper/swiper.min.css";
 
