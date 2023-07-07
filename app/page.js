@@ -8,9 +8,7 @@ import classes from './page.module.css';
 import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
 import ReactGA from 'react-ga'
-const TRACKING_ID = 'G-SLQ8CKJ7WP'
-ReactGA.initialize(TRACKING_ID);
-ReactGA.send({hitType:'pageview',page:'/'});
+
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);
@@ -22,6 +20,10 @@ export default function Accounts() {
   const [visibleAccounts, setVisibleAccounts] = useState(4);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
+
+  const TRACKING_ID = 'G-SLQ8CKJ7WP'
+ReactGA.initialize(TRACKING_ID);
+ReactGA.send({hitType:'pageview',page:'/'});
 
   useEffect(() => {
     async function fetchAccounts() {
