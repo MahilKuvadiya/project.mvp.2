@@ -8,6 +8,8 @@ import classes from './page.module.css';
 import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
 import ReactGA from 'react-ga'
+import { Helmet } from 'react-helmet';
+
 
 
 export default function Accounts() {
@@ -103,6 +105,17 @@ export default function Accounts() {
 
 
     <>
+    <Helmet>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKVLK12SJL"></script>
+      <script>{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LKVLK12SJL');
+      `}
+      </script>
+      </Helmet>
 
 
       <div id="mainDiv">
@@ -173,21 +186,21 @@ export default function Accounts() {
               {isLoadingMore ? (
                 <div className={classes.loader}></div>
               ) : (visibleAccounts === accounts.length ? (
-                <button className="btn" id='b3' style={{width:'90%' , marginTop:'20px'}} onClick={handleSeeMore}>
+                <button className="btn" id='b3' style={{ width: '90%', marginTop: '20px' }} onClick={handleSeeMore}>
                   See More &#x2B9F;
                 </button>
 
 
               ) : null)}
-          {!isThereAnyMoreAccounts ? (
-            <div className={classes.noMoreAccounts}>That's all we have!!!</div>
-          ) : null}
-        </>
-        ) : (
-        <h3 className={classes.noBlogs}>No Accounts</h3>
+              {!isThereAnyMoreAccounts ? (
+                <div className={classes.noMoreAccounts}>That's all we have!!!</div>
+              ) : null}
+            </>
+          ) : (
+            <h3 className={classes.noBlogs}>No Accounts</h3>
           )}
-      </div>
-    </div >
+        </div>
+      </div >
 
     </>
   );

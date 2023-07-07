@@ -37,6 +37,7 @@
     "next-connect": "^1.0.0",
     "next-qrcode": "^2.4.1",
     "react-ga": "^3.3.1",
+    "react-helmet": "^6.1.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
     "react-svg": "^16.1.17",
