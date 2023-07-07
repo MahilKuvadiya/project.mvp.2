@@ -22,7 +22,7 @@ export default function Accounts() {
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
 
   useEffect(() => {
-    const TRACKING_ID = 'G-SLQ8CKJ7WP';
+    const TRACKING_ID = 'G-LKVLK12SJL';
     ReactGA.initialize(TRACKING_ID);
     ReactGA.pageview('/');
   }, []);
