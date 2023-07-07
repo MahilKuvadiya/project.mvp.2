@@ -21,9 +21,11 @@ export default function Accounts() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
 
-  const TRACKING_ID = 'G-SLQ8CKJ7WP'
-ReactGA.initialize(TRACKING_ID);
-ReactGA.send({hitType:'pageview',page:'/'});
+  useEffect(() => {
+    const TRACKING_ID = 'G-SLQ8CKJ7WP';
+    ReactGA.initialize(TRACKING_ID);
+    ReactGA.pageview('/');
+  }, []);
 
   useEffect(() => {
     async function fetchAccounts() {
