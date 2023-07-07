@@ -7,6 +7,9 @@ import AccountCard from 'app/components/accountCard/AccountCard';
 import classes from './page.module.css';
 import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
+import ReactGA from 'react-ga'
+const TRACKING_ID = 'G-SLQ8CKJ7WP'
+ReactGA.initialize(TRACKING_ID);
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);
