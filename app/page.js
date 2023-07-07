@@ -10,7 +10,8 @@ import { useRef } from 'react';
 import ReactGA from 'react-ga'
 import { Helmet } from 'react-helmet';
 
-
+const TRACKING_ID = 'G-LKVLK12SJL';
+    ReactGA.initialize(TRACKING_ID);
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);
@@ -23,10 +24,7 @@ export default function Accounts() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
 
-  useEffect(() => {
-    const TRACKING_ID = 'UA-276939605-1';
-    ReactGA.initialize(TRACKING_ID);
-  }, []);
+ 
 
   useEffect(() => {
     async function fetchAccounts() {
