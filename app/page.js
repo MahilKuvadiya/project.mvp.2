@@ -10,6 +10,7 @@ import { useRef } from 'react';
 import ReactGA from 'react-ga'
 const TRACKING_ID = 'G-SLQ8CKJ7WP'
 ReactGA.initialize(TRACKING_ID);
+ReactGA.send({hitType:'pageview',page:'/'});
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);
