@@ -7,6 +7,7 @@ import AccountCard from 'app/components/accountCard/AccountCard';
 import './profile.css';
 import { useRouter } from 'next/navigation';
 import User from '../../components/User';
+import ReactGA from 'react-ga'
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);
@@ -15,6 +16,8 @@ export default function Accounts() {
   const [isLoading, setIsLoading] = useState(true);
   const anotherSession = useSession()
   const router = useRouter();
+
+
 
   useEffect(() => {
     if (anotherSession?.status === 'unauthenticated') {
@@ -42,6 +45,13 @@ export default function Accounts() {
       setUserEmail(session.user.email);
       fetchAccounts();
     }
+
+    ReactGA.event({
+      category:'this',
+      action:'test',
+      label:'try',
+      value:'trying'
+    })
   }, [session]);
 
   return (
