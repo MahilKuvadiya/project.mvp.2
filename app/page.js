@@ -25,13 +25,13 @@ export default function Accounts() {
 
   ReactGA.initialize('G-LKVLK12SJL');
   ReactGA.pageview('/');
-  useEffect(() => {
-    ReactGA.event({
-      category: 'User',
-      action: 'Count',
-      label: 'User Count',
-    });
-  }, []);
+  // useEffect(() => {
+  //   ReactGA.event({
+  //     category: 'User',
+  //     action: 'Count',
+  //     label: 'User Count',
+  //   });
+  // }, []);
 
   useEffect(() => {
     async function fetchAccounts() {
@@ -117,7 +117,9 @@ export default function Accounts() {
         function gtag(){dataLayer.push(arguments)}
         gtag('js', new Date());
 
-        gtag('config', 'G-LKVLK12SJL');
+        gtag('config', 'G-LKVLK12SJL',{
+          'user_id':'win'
+        });
       `}
       </script>
       </Helmet>
