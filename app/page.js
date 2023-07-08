@@ -22,9 +22,10 @@ export default function Accounts() {
   const [visibleAccounts, setVisibleAccounts] = useState(4);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
+
+  ReactGA.initialize('G-LKVLK12SJL');
+  ReactGA.pageview('/');
   useEffect(() => {
-    ReactGA.initialize('G-LKVLK12SJL');
-    ReactGA.pageview('/');
     ReactGA.event({
       category: 'User',
       action: 'Count',
