@@ -26,9 +26,13 @@ export default function Accounts() {
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
 
   
-  useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: "/sell", title: "Sell Page" });
-  }, []);
+  const Track = () => {
+    ReactGA.event({
+      category: 'User',
+      action: 'Sell Click',
+      label: 'Sell Button Clicked',
+    });
+  };
 
   useEffect(() => {
     async function fetchAccounts() {
@@ -149,7 +153,7 @@ export default function Accounts() {
             <a className="btn" id='b1' role='button' onClick={() => targetRef.current.scrollIntoView({ behavior: "smooth" })}>BUY</a>
 
 
-            <a className="btn" id='b2' role='button' href='./sell'>SELL</a>
+            <a className="btn" id='b2' role='button' href='./sell' onClick={Track}>SELL</a>
 
           </div>
         </div>

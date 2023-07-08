@@ -9,6 +9,7 @@ import './sell.css';
 import { toast } from 'react-hot-toast';
 import User from '../../components/User';
 import $ from "jquery";
+import { Helmet } from 'react-helmet';
 
 const CreateBlog = () => {
   const [title, setTitle] = useState('');
@@ -210,6 +211,18 @@ const CreateBlog = () => {
 
 
   return (
+    <>
+    <Helmet>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKVLK12SJL"></script>
+      <script>{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LKVLK12SJL');
+      `}
+      </script>
+      </Helmet>
     <div className="container">
       <div className="wrapper">
         <h2>Make A Sell</h2>
@@ -355,6 +368,7 @@ const CreateBlog = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 
