@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
 import ReactGA from 'react-ga'
 import { Helmet } from 'react-helmet';
+ReactGA.initialize('G-LKVLK12SJL');
+ReactGA.pageview('window.location.href');
 
     
 
@@ -23,8 +25,7 @@ export default function Accounts() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
 
-  ReactGA.initialize('G-LKVLK12SJL');
-  ReactGA.pageview('/');
+  
   // useEffect(() => {
   //   ReactGA.event({
   //     category: 'User',
@@ -117,9 +118,7 @@ export default function Accounts() {
         function gtag(){dataLayer.push(arguments)}
         gtag('js', new Date());
 
-        gtag('config', 'G-LKVLK12SJL',{
-          'user_id':'win'
-        });
+        gtag('config', 'G-LKVLK12SJL');
       `}
       </script>
       </Helmet>
