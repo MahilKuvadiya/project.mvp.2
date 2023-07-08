@@ -22,15 +22,15 @@ export default function Accounts() {
   const [visibleAccounts, setVisibleAccounts] = useState(4);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
-    const TRACKING_ID = 'G-LKVLK12SJL';
-    ReactGA.initialize(TRACKING_ID);
-
+  useEffect(() => {
+    ReactGA.initialize('G-LKVLK12SJL');
+    ReactGA.pageview('/');
     ReactGA.event({
-      category:'this',
-      action:'test',
-      label:'try',
-      value:'trying'
-    })
+      category: 'User',
+      action: 'Count',
+      label: 'User Count',
+    });
+  }, []);
 
   useEffect(() => {
     async function fetchAccounts() {
