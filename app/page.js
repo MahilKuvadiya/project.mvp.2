@@ -26,13 +26,9 @@ export default function Accounts() {
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
 
   
-  // useEffect(() => {
-  //   ReactGA.event({
-  //     category: 'User',
-  //     action: 'Count',
-  //     label: 'User Count',
-  //   });
-  // }, []);
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: "/sell", title: "Sell Page" });
+  }, []);
 
   useEffect(() => {
     async function fetchAccounts() {

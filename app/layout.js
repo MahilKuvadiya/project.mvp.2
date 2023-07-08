@@ -2,7 +2,6 @@ import Provider from './context/AuthContext'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import ToasterContext from './context/TosterContext'
-import { Helmet } from 'react-helmet';
 
 export const metadata = {
   title: 'Mvptrade',
@@ -12,17 +11,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Helmet>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKVLK12SJL"></script>
-      <script>{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments)}
-        gtag('js', new Date());
-
-        gtag('config', 'G-LKVLK12SJL');
-      `}
-      </script>
-      </Helmet>
       <body>
         <Provider>
           <ToasterContext/>
