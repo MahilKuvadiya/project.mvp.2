@@ -25,7 +25,12 @@ export default function Accounts() {
     const TRACKING_ID = 'G-LKVLK12SJL';
     ReactGA.initialize(TRACKING_ID);
 
- 
+    ReactGA.event({
+      category:'this',
+      action:'test',
+      label:'try',
+      value:'trying'
+    })
 
   useEffect(() => {
     async function fetchAccounts() {

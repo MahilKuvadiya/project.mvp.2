@@ -46,12 +46,7 @@ export default function Accounts() {
       fetchAccounts();
     }
 
-    ReactGA.event({
-      category:'this',
-      action:'test',
-      label:'try',
-      value:'trying'
-    })
+    
   }, [session]);
 
   return (
