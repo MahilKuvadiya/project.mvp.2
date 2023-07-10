@@ -106,6 +106,8 @@ export default function Accounts() {
   };
   const targetRef = useRef();
 
+  
+
   return (
 
 
@@ -172,12 +174,34 @@ export default function Accounts() {
               onChange={(e) => setGameName(e.target.value)}
               className={classes.dropdown}
             >
-              <option value="">All Games</option>
-              <option value="Asphalt 9">Asphalt 9</option>
-              <option value="Valorent">Valorent</option>
-              <option value="Clash Royal">Clash Royal</option>
-              <option value="Clash Of Clans">Clash Of Clans</option>
+              <option value="ASPHALT 9">ASPHALT 9</option>
+              <option value="VALORENT">VALORANT</option>
+              <option value="CLASH ROYAL">CLASH ROYAL</option>
+              <option value="CLASH OF CLANS">CLASH OF CLANS</option>
               <option value="BGMI">BGMI</option>
+              <option value="GTA 5">GTA 5</option>
+              <option value="VALORANT">VALORANT</option>
+              <option value="POKEMON GO">POKEMON GO</option>
+              <option value="FORTNITE">FORTNITE</option>
+              <option value="CLASH OF CLANS">CLASH OF CLANS</option>
+              <option value="APEX LEGENDS">APEX LEGENDS</option>
+              <option value="ASPHALT 9">ASPHALT 9</option>
+              <option value="BGMI">BGMI</option>
+              <option value="BOOM BEACH">BOOM BEACH</option>
+              <option value="BRAWL STARS">BRAWL STARS</option>
+              <option value="CALL OF DUTY">CALL OF DUTY</option>
+              <option value="CS:GO">CS:GO</option>
+              <option value="CROSSOUT">CROSSOUT</option>
+              <option value="FIFA">FIFA</option>
+              <option value="FORZA HORIZON">FORZA HORIZON</option>
+              <option value="FREE FIRE">FREE FIRE</option>
+              <option value="GENSHIN IMPACT">GENSHIN IMPACT</option>
+              <option value="LEAGUE OF LEGENDS">LEAGUE OF LEGENDS</option>
+              <option value="MARVEL MOBILE GAMES">MARVEL MOBILE GAMES</option>
+              <option value="MINECRAFT">MINECRAFT</option>
+              <option value="MORTAL COMBAT">MORTAL COMBAT</option>
+              <option value="8 BALL POOL">8 BALL POOL</option>
+              <option value="OTHER GAME">OTHER GAME</option>
             </select>
             <span className={classes.dropdownArrow}></span>
             <button className='btn' id='b3' onClick={accountFilter}>Filter</button>
@@ -192,7 +216,7 @@ export default function Accounts() {
               {isLoadingMore ? (
                 <div className={classes.loader}></div>
               ) : (visibleAccounts === accounts.length ? (
-                <button className="btn" id='b3' style={{ width: '90%', marginTop: '20px' }} onClick={handleSeeMore}>
+                <button className="btn" id='b3' style={{ width: '80%', marginTop: '20px' }} onClick={handleSeeMore}>
                   See More &#x2B9F;
                 </button>
 

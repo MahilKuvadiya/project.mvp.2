@@ -16,7 +16,7 @@ const Order =(checkout) => {
     const { data: session } = useSession();
     const { Canvas } = useQRCode();
     
-    const ConvenienceFee = price * 0.02
+    const ConvenienceFee = price * 0.05
     const _convenienceFee = Number(ConvenienceFee.toFixed(2));
     var Total = parseFloat(price) + parseFloat(_convenienceFee);
 
@@ -72,7 +72,7 @@ const Order =(checkout) => {
                                 </p>
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <p className={styles.fee}>Convenience Fee @ 2%</p><p>{_convenienceFee}</p>
+                                <p className={styles.fee}>Convenience Fee @ 5%</p><p>{_convenienceFee}</p>
                             </div>
                         </div>
                         <div className={styles.total}>

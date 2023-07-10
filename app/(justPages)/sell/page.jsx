@@ -267,7 +267,7 @@ const CreateBlog = () => {
             <div className="text">Select Game</div>
             <select value={gameName} onChange={(e) => setgameName(e.target.value)}>
               <option value="ASPHALT 9">ASPHALT 9</option>
-              <option value="VALORENT">VALORENT</option>
+              <option value="VALORENT">VALORANT</option>
               <option value="CLASH ROYAL">CLASH ROYAL</option>
               <option value="CLASH OF CLANS">CLASH OF CLANS</option>
               <option value="BGMI">BGMI</option>
