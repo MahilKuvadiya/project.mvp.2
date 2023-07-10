@@ -114,6 +114,7 @@ export default function Accounts() {
 
     <>
     <Helmet>
+      <title>Buy & Sell Gaming Accounts</title>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKVLK12SJL"></script>
       <script>{`
         window.dataLayer = window.dataLayer || [];
