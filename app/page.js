@@ -12,7 +12,7 @@ import { Helmet } from 'react-helmet';
 ReactGA.initialize('G-LKVLK12SJL');
 ReactGA.pageview('window.location.href');
 
-    
+
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([]);
@@ -25,7 +25,7 @@ export default function Accounts() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isThereAnyMoreAccounts, setIsThereAnyMoreAccounts] = useState(true)
 
-  
+
   const Track = () => {
     ReactGA.event({
       category: 'User',
@@ -106,24 +106,26 @@ export default function Accounts() {
   };
   const targetRef = useRef();
 
-  
+
 
   return (
 
 
 
     <>
-    <Helmet>
-      <title>Buy & Sell Gaming Accounts</title>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKVLK12SJL"></script>
-      <script>{`
+      <Helmet>
+
+        <meta name="Buy & Sell Gaming Accounts" content="Buy and Sell Your Gaming Account with Real Money" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKVLK12SJL"></script>
+        <script>{`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments)}
         gtag('js', new Date());
 
         gtag('config', 'G-LKVLK12SJL');
       `}
-      </script>
+        </script>
       </Helmet>
 
 
