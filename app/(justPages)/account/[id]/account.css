@@ -428,7 +428,7 @@ a {
 }
 @media screen and (max-width: 576px) {
   .product-slider__content {
-    padding-top: 270px;
+    padding-top: 270px !important; 
     padding-left: 15px;
     padding-right: 15px;
   }
