@@ -33,9 +33,9 @@ export default function User() {
   }, [session]);
 
   JSON.stringify(user);
-  console.log(user)
+  // console.log(user)
   const phoneNumber = user.phoneNumber
-  console.log(phoneNumber)
+  // console.log(phoneNumber)
 
   return phoneNumber
 }

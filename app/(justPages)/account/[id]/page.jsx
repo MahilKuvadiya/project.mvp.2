@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { use } from 'react';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
@@ -12,12 +12,16 @@ import './account.css'
 import Order from '../../../components/checkout/page'
 import { toast } from 'react-hot-toast';
 import "swiper/swiper.min.css";
+import { useRouter } from 'next/navigation';
+
 
 const Page = (ctx) => {
   // const router = useRouter();
   const { data: session, status } = useSession();
   const [account, setAccount] = useState();
-  // const [isLoading, setIsLoading] = useState(true);
+  const [ItIsSeller, setItIsSeller] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
 
@@ -88,7 +92,7 @@ const Page = (ctx) => {
 
         const response = await axios.post('/api/getParticularAccount', data);
         setAccount(response.data);
-        console.log(account)
+        // console.log(account)
       } catch (error) {
         console.error(error);
       }
@@ -96,17 +100,39 @@ const Page = (ctx) => {
 
 
     fetchAccountInfo();
+
   }, [session]);
-  // // if (isLoading) {
-  // //   return <div>Loading...</div>;
-  // // }
+
+  useEffect(() => {
+
+    const accountEmail = account?.email
+    const email = session?.user?.email
+    console.log(account?.email + "h")
+    console.log(session?.user?.email)
+    if(email === undefined){
+      console.log("mahil")
+    }
+    if(!(accountEmail === undefined)){
+      if (email === accountEmail ) {
+        console.log("hii")
+        setItIsSeller(true)
+      }
+      setIsLoading(false)
+    }
+  }, [account])
+
+
+
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
   JSON.stringify(account)
   const title = account?.title
 
   const accountName = account?.accountName
   const gameName = account?.gameName
   const price = account?.price
-  const email = account?.email
+
 
   const description = account?.description
   const image0 = account?.image[0]
@@ -166,12 +192,29 @@ const Page = (ctx) => {
     formattedSpecial += line1;
   }
 
+  const handleDelete = async ()=> {
+    try {
+      const data = {
+        id: ctx.params.id,
+      };
+
+      const response = await axios.post('/api/handleDelete', data)
+      .then(()=>router.push("/profile"));
+
+      // console.log(account)
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <>
       {/* <button onClick={handleBuyClick}>Buy</button> */}
-
+      {isLoading ? (
+          <div className="loader"></div> // Display the loader
+          ):(
+      <>
+      
       {showOrder && <Order price={price} accountName={accountName} />}
-
       {/* <div>{accountJSON}</div> */}
       {!showOrder && <>
         <div className="wrapper">
@@ -255,9 +298,17 @@ const Page = (ctx) => {
 
                       <div className="product-slider__bottom">
 
-                        <button className="product-slider__cart" onClick={handleBuyClick}>
+                        {ItIsSeller? (
+                            <button className="product-slider__cart" onClick={handleDelete}>
+                          &#x1F6D2; delete
+                        </button>
+                          ): (
+                            <button className="product-slider__cart" onClick={handleBuyClick}>
                           &#x1F6D2; BUY NOW
                         </button>
+                        )
+                        }
+                        
 
                         <button className="product-slider__fav js-fav">&#x2713; Assured</button>
                       </div>
@@ -283,9 +334,14 @@ const Page = (ctx) => {
 
                       <div className="product-slider__bottom">
 
-                        <button className="product-slider__cart" onClick={handleBuyClick}>
+                        {ItIsSeller? (
+                          <div></div>
+                          ): (
+                            <button className="product-slider__cart" onClick={handleBuyClick}>
                           &#x1F6D2; BUY NOW
                         </button>
+                        )
+                        }
 
 
                         <button className="product-slider__fav js-fav">&#x2713; Assured</button>
@@ -298,7 +354,7 @@ const Page = (ctx) => {
                   <div className="product-slider__card">
                     <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405222/starwars/item-2-bg.webp" alt="star wars" className="product-slider__cover" />
                     <div className="product-slider__content">
-                    <span className="product-slider__price" style={{ textAlign: 'center' }}>Description</span>
+                      <span className="product-slider__price" style={{ textAlign: 'center' }}>Description</span>
                       <div className="product-ctr">
                         <div className="product-labels">
                           <div className="product-labels__title" style={{ textAlign: 'center' }}>{formattedDescription}</div>
@@ -307,9 +363,14 @@ const Page = (ctx) => {
                       </div>
 
                       <div className="product-slider__bottom">
-                        <button className="product-slider__cart" onClick={handleBuyClick}>
+                      {ItIsSeller? (
+                          <div></div>
+                          ): (
+                            <button className="product-slider__cart" onClick={handleBuyClick}>
                           &#x1F6D2; BUY NOW
                         </button>
+                        )
+                        }
 
                         {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
                       </div>
@@ -324,10 +385,14 @@ const Page = (ctx) => {
 
                         <div className="product-slider__bottom">
 
-                          <button className="product-slider__cart" onClick={handleBuyClick}>
-                            &#x1F6D2; BUY NOW
-                          </button>
-
+                        {ItIsSeller? (
+                          <div></div>
+                          ): (
+                            <button className="product-slider__cart" onClick={handleBuyClick}>
+                          &#x1F6D2; BUY NOW
+                        </button>
+                        )
+                        }
 
                           {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
                         </div>
@@ -343,10 +408,14 @@ const Page = (ctx) => {
 
 
                         <div className="product-slider__bottom">
-
-                          <button className="product-slider__cart" onClick={handleBuyClick}>
-                            &#x1F6D2; BUY NOW
-                          </button>
+                        {ItIsSeller? (
+                          <div></div>
+                          ): (
+                            <button className="product-slider__cart" onClick={handleBuyClick}>
+                          &#x1F6D2; BUY NOW
+                        </button>
+                        )
+                        }
 
 
                           {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
@@ -364,9 +433,14 @@ const Page = (ctx) => {
 
                         <div className="product-slider__bottom">
 
-                          <button className="product-slider__cart" onClick={handleBuyClick}>
-                            &#x1F6D2; BUY NOW
-                          </button>
+                        {ItIsSeller? (
+                          <div></div>
+                          ): (
+                            <button className="product-slider__cart" onClick={handleBuyClick}>
+                          &#x1F6D2; BUY NOW
+                        </button>
+                        )
+                        }
 
 
                           {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
@@ -401,8 +475,12 @@ const Page = (ctx) => {
 
       <Script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></Script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+                    </>
+                          )}
       {/* <Script  src="./swipe.js"></Script> */}
+      
     </>
+    
   )
 }
 

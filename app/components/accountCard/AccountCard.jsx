@@ -90,7 +90,7 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
 
                   <Link className={classes.imgContainer} href={`/account/${id}`}>
                     <button className="product-slider__cart1">
-                      BUY NOW
+                      KNOW MORE
                     </button>
                   </Link>
 
