@@ -20,6 +20,7 @@ export default function Accounts() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [gameName, setGameName] = useState('');
+  const [sorting, setSorting] = useState('desc');
   const [filteredAccounts, setFilteredAccounts] = useState([]);
   const [visibleAccounts, setVisibleAccounts] = useState(4);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -39,7 +40,8 @@ export default function Accounts() {
       try {
         const data = {
           skip: 0,
-          gameName: ''
+          gameName: '',
+          sorting: sorting
         }
         const res = await axios.post('/api/getAllAccounts', data);
         setAccounts(res.data);
@@ -58,7 +60,8 @@ export default function Accounts() {
       setIsLoadingMore(true);
       const data = {
         skip: visibleAccounts,
-        gameName: gameName
+        gameName: gameName,
+        sorting: sorting
       }
       const res = await axios.post('/api/getAllAccounts', data);
       if (res.data.length === 0) {
@@ -80,7 +83,8 @@ export default function Accounts() {
       try {
         const data = {
           skip: 0,
-          gameName: gameName
+          gameName: gameName,
+          sorting: sorting
         }
         const res = await axios.post('/api/getAllAccounts', data);
         setAccounts(res.data);
@@ -206,8 +210,21 @@ export default function Accounts() {
               <option value="8 BALL POOL">8 BALL POOL</option>
               <option value="OTHER GAME">OTHER GAME</option>
             </select>
-            <span className={classes.dropdownArrow}></span>
-            <button className='btn' id='b3' onClick={accountFilter}>Filter</button>
+            {/* <span className={classes.dropdownArrow}></span> */}
+            {/* <button className='btn' id='b3' onClick={accountFilter}>Filter</button> */}
+          </div>
+          <div className={classes.dropdownContainer}>
+            <select
+              value={sorting}
+              onChange={(e) => setSorting(e.target.value)}
+              className={classes.dropdown}
+            >
+              <option value='desc'>New first</option>
+              <option value='asc'>Old first</option>
+              
+            </select>
+            {/* <span className={classes.dropdownArrow}></span> */}
+            <button className='btn' id='b3' onClick={accountFilter}>Sort</button>
           </div>
           {isLoading ? (
             <div className={classes.loader}></div>
