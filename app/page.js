@@ -20,7 +20,7 @@ export default function Accounts() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [gameName, setGameName] = useState('');
-  const [sorting, setSorting] = useState('desc');
+  const [sorting, setSorting] = useState('new');
   const [filteredAccounts, setFilteredAccounts] = useState([]);
   const [visibleAccounts, setVisibleAccounts] = useState(4);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -181,6 +181,7 @@ export default function Accounts() {
               onChange={(e) => setGameName(e.target.value)}
               className={classes.dropdown}
             >
+              <option value="">ALL GAMES</option>
               <option value="ASPHALT 9">ASPHALT 9</option>
               <option value="VALORENT">VALORANT</option>
               <option value="CLASH ROYAL">CLASH ROYAL</option>
@@ -219,8 +220,10 @@ export default function Accounts() {
               onChange={(e) => setSorting(e.target.value)}
               className={classes.dropdown}
             >
-              <option value='desc'>New first</option>
-              <option value='asc'>Old first</option>
+              <option value='new'>NEW FIRST</option>
+              <option value='old'>OLD FIRST</option>
+              <option value='cheap'>PRICE (LOW-HIGH)</option>
+              <option value='premium'>PRICE (HIGH-LOW)</option>
               
             </select>
             {/* <span className={classes.dropdownArrow}></span> */}
@@ -247,7 +250,7 @@ export default function Accounts() {
               ) : null}
             </>
           ) : (
-            <h3 className={classes.noBlogs}>No Accounts</h3>
+            <h3 className={classes.noBlogs} class="white-text">Sorry,No Accounts</h3>
           )}
         </div>
       </div >
