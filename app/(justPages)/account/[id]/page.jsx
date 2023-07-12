@@ -21,6 +21,7 @@ const Page = (ctx) => {
   const [account, setAccount] = useState();
   const [ItIsSeller, setItIsSeller] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPop, setPop] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -50,11 +51,11 @@ const Page = (ctx) => {
     const email = session?.user?.email
     console.log(account?.email + "h")
     console.log(session?.user?.email)
-    if(email === undefined){
+    if (email === undefined) {
       console.log("mahil")
     }
-    if(!(accountEmail === undefined)){
-      if (email === accountEmail ) {
+    if (!(accountEmail === undefined)) {
+      if (email === accountEmail) {
         console.log("hii")
         setItIsSeller(true)
       }
@@ -85,7 +86,7 @@ const Page = (ctx) => {
   const specialFeature = account?.specialFeature
 
   const [showOrder, setShowOrder] = useState(false); // State variable to control visibility
-  
+
   const handleBuyClick = () => {
     if (status === 'unauthenticated') {
       toast.error("Plaese login first.")
@@ -94,7 +95,7 @@ const Page = (ctx) => {
     }
   }
   useEffect(() => {
-    
+
 
     if (isLoading) {
       return; // Return early if still loading
@@ -159,9 +160,9 @@ const Page = (ctx) => {
     $(".js-fav").on("click", function () {
       $(this).find('.heart').toggleClass("is-active");
     });
-  
 
-},[isLoading]);
+
+  }, [isLoading]);
 
   const count = account?.image.length
   const desc = description
@@ -203,14 +204,14 @@ const Page = (ctx) => {
     formattedSpecial += line1;
   }
 
-  const handleDelete = async ()=> {
+  const handleDelete = async () => {
     try {
       const data = {
         id: ctx.params.id,
       };
 
       const response = await axios.post('/api/handleDelete', data)
-      .then(()=>router.push("/profile"));
+        .then(() => router.push("/profile"));
 
       // console.log(account)
     } catch (error) {
@@ -219,280 +220,294 @@ const Page = (ctx) => {
   }
   return (
     <>
-     <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
       {/* <button onClick={handleBuyClick}>Buy</button> */}
       {isLoading ? (
-          <div className="loader"></div> // Display the loader
-          ):(
-      <>
-      
-      {showOrder && <Order price={price} accountName={accountName} />}
-      {/* <div>{accountJSON}</div> */}
-      {!showOrder && <>
-        <div className="wrapper">
+        <div className="loader"></div> // Display the loader
+      ) : (
+        <>
 
-          <div className="content">
-            <div className="bg-shape">
+          {showOrder && <Order price={price} accountName={accountName} />}
+          {/* <div>{accountJSON}</div> */}
+          {!showOrder && <>
+            <div className="wrapper">
 
-            </div>
+              <div className="content">
+                <div className="bg-shape">
 
-
-            <div className="product-img">
-
-
-
-
-
-              <div className="product-img__item" id="img0">
-                <img src={image0} alt="image 3" className="product-img__img" height='500px' width='500px' />
-              </div>
-
-              <div className="product-img__item" id="img1">
-                <img src={image1} alt="image 2" className="product-img__img" height='500px' width='500px' />
-              </div>
-
-              <div className="product-img__item" id="img2">
-                <img src={image2} alt="image 1" className="product-img__img" height='350px' width='5000px' />
-              </div>
-
-              <div className="product-img__item" id="img3">
-                <img src={image3} alt="image 0" className="product-img__img" height='500px' width='500px' />
-              </div>
-
-              <div className="product-img__item" id="img4">
-                <img src={image4} alt="image 0" className="product-img__img" height='500px' width='500px' />
-              </div>
-
-              <div className="product-img__item" id="video">
-                <video alt="video" src={video} className="product-img__img" height='500px' width='500px' controls={false} autoPlay loop preload={'auto'} muted>
-
-                </video>
-              </div>
-
-
-
-
-            </div>
-
-
-
-            <div className="product-slider">
-              <div className="swiper-pagination"></div>
-              <button className="prev disabled">
-                <span className="icon">
-                  <svg className="icon icon-arrow-right"><use xlinkHref="#icon-arrow-left"></use></svg>
-                </span>
-              </button>
-              <button className="next swiper-button-next">
-                <span className="icon">
-                  <svg className="icon icon-arrow-right"><use xlinkHref="#icon-arrow-right"></use></svg>
-                </span>
-              </button>
-
-              <div className="product-slider__wrp swiper-wrapper">
-                <div className="product-slider__item swiper-slide" data-target="img0">
-                  <div className="product-slider__card">
-                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405223/starwars/item-4-bg.webp" alt="star wars" className="product-slider__cover" />
-                    <div className="product-slider__content">
-                      <h1 className="product-slider__title" style={{ textAlign: 'center' }}>
-                        {title}
-                      </h1>
-                      <span className="product-slider__price" style={{ textAlign: 'center' }}>&#8377;{price}</span>
-                      <div className="product-ctr">
-                        <div className="product-labels">
-                          <div className="product-labels__title">{gameName}</div>
-
-
-
-                        </div>
-
-                      </div>
-
-                      <div className="product-slider__bottom">
-
-                        {ItIsSeller? (
-                            <button className="product-slider__cart" onClick={handleDelete}>
-                          &#x1F6D2; delete
-                        </button>
-                          ): (
-                            <button className="product-slider__cart" onClick={handleBuyClick}>
-                          &#x1F6D2; BUY NOW
-                        </button>
-                        )
-                        }
-                        
-
-                        <button className="product-slider__fav js-fav">&#x2713; Assured</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-slider__item swiper-slide" data-target="img1">
-                  <div className="product-slider__card">
-                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405222/starwars/item-1-bg.webp" alt="star wars" className="product-slider__cover" />
-                    <div className="product-slider__content">
-                      <h1 className="product-slider__title" style={{ textAlign: 'center' }}>
-                        {accountName}
-                      </h1>
-                      <span className="product-slider__price" style={{ textAlign: 'center' }}>SPECIAL FEATURE</span>
-                      <div className="product-ctr">
-                        <div className="product-labels">
-                          <div className="product-labels__title" style={{ textAlign: 'center' }}>{formattedSpecial}</div>
-                        </div>
-
-
-
-                      </div>
-
-                      <div className="product-slider__bottom">
-
-                        {ItIsSeller? (
-                          <div></div>
-                          ): (
-                            <button className="product-slider__cart" onClick={handleBuyClick}>
-                          &#x1F6D2; BUY NOW
-                        </button>
-                        )
-                        }
-
-
-                        <button className="product-slider__fav js-fav">&#x2713; Assured</button>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="product-slider__item swiper-slide" data-target="img2">
-                  <div className="product-slider__card">
-                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405222/starwars/item-2-bg.webp" alt="star wars" className="product-slider__cover" />
-                    <div className="product-slider__content">
-                      <span className="product-slider__price" style={{ textAlign: 'center' }}>Description</span>
-                      <div className="product-ctr">
-                        <div className="product-labels">
-                          <div className="product-labels__title" style={{ textAlign: 'center' }}>{formattedDescription}</div>
+                <div className="product-img">
+
+                  <div className="product-img__item" id="img0">
+                    <img src={image0} alt="image 3" className="product-img__img" height='500px' width='500px' />
+                  </div>
+
+                  <div className="product-img__item" id="img1">
+                    <img src={image1} alt="image 2" className="product-img__img" height='500px' width='500px' />
+                  </div>
+
+                  <div className="product-img__item" id="img2">
+                    <img src={image2} alt="image 1" className="product-img__img" height='350px' width='5000px' />
+                  </div>
+
+                  <div className="product-img__item" id="img3">
+                    <img src={image3} alt="image 0" className="product-img__img" height='500px' width='500px' />
+                  </div>
+
+                  <div className="product-img__item" id="img4">
+                    <img src={image4} alt="image 0" className="product-img__img" height='500px' width='500px' />
+                  </div>
+
+                  <div className="product-img__item" id="video">
+                    <video alt="video" src={video} className="product-img__img" height='500px' width='500px' controls={false} autoPlay loop preload={'auto'} muted>
+
+                    </video>
+                  </div>
+
+
+
+
+                </div>
+
+
+
+                <div className="product-slider">
+                  <div className="swiper-pagination"></div>
+                  <button className="prev disabled">
+                    <span className="icon">
+                      <svg className="icon icon-arrow-right"><use xlinkHref="#icon-arrow-left"></use></svg>
+                    </span>
+                  </button>
+                  <button className="next swiper-button-next">
+                    <span className="icon">
+                      <svg className="icon icon-arrow-right"><use xlinkHref="#icon-arrow-right"></use></svg>
+                    </span>
+                  </button>
+
+                  <div className="product-slider__wrp swiper-wrapper">
+                    <div className="product-slider__item swiper-slide" data-target="img0">
+                      <div className="product-slider__card">
+                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405223/starwars/item-4-bg.webp" alt="star wars" className="product-slider__cover" />
+                        <div className="product-slider__content">
+                          <h1 className="product-slider__title" style={{ textAlign: 'center' }}>
+                            {title}
+                          </h1>
+                          <span className="product-slider__price" style={{ textAlign: 'center' }}>&#8377;{price}</span>
+                          <div className="product-ctr">
+                            <div className="product-labels">
+                              <div className="product-labels__title">{gameName}</div>
+
+
+
+                            </div>
+
+                          </div>
+
+                          <div className="product-slider__bottom">
+
+                            {ItIsSeller ? (
+                              <>
+                                
+                                  <a class="product-slider__cart" href="#popup1" style={{textAlign:'center',height:'30px',marginRight:'0px', marginLeft:'0px', display:'flex',alignItems:'center',color:'white', textDecoration:'none',justifyContent:'center'}} onClick={() => setPop(true)}>Delete</a>
+                               
+                                { isPop ? (
+                                <div id="popup1" class="overlay">
+                                  <div class="popup">
+                                    <a class="close" href="#" onClick={() => setPop(false)}>&times;</a>
+                                    <div class="co">
+                                      <h6 style={{color:'black'}}>Are You Sure?</h6>
+                                      <button className="product-slider__cart" style={{marginBottom:'10px',marginRight:'0px', marginLeft:'0px'}} onClick={handleDelete}>
+                                      &#x1F5D1; delete
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                  ) : (<></>)
+                                  }
+                              </>
+                            ) : (
+                              <>
+                              <button className="product-slider__cart" onClick={handleBuyClick}>
+                                &#x1F6D2; BUY NOW
+                              </button>
+                              <button className="product-slider__fav js-fav">&#x2713; Assured</button>
+                              </>
+                            )
+                            }
+
+
+                            
+                          </div>
                         </div>
-
-                      </div>
-
-                      <div className="product-slider__bottom">
-                      {ItIsSeller? (
-                          <div></div>
-                          ): (
-                            <button className="product-slider__cart" onClick={handleBuyClick}>
-                          &#x1F6D2; BUY NOW
-                        </button>
-                        )
-                        }
-
-                        {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
                       </div>
                     </div>
+                    <div className="product-slider__item swiper-slide" data-target="img1">
+                      <div className="product-slider__card">
+                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405222/starwars/item-1-bg.webp" alt="star wars" className="product-slider__cover" />
+                        <div className="product-slider__content">
+                          <h1 className="product-slider__title" style={{ textAlign: 'center' }}>
+                            {accountName}
+                          </h1>
+                          <span className="product-slider__price" style={{ textAlign: 'center' }}>SPECIAL FEATURE</span>
+                          <div className="product-ctr">
+                            <div className="product-labels">
+                              <div className="product-labels__title" style={{ textAlign: 'center' }}>{formattedSpecial}</div>
+                            </div>
+
+
+
+                          </div>
+
+                          <div className="product-slider__bottom">
+
+                            {ItIsSeller ? (
+                              <div></div>
+                            ) : (
+                              <button className="product-slider__cart" onClick={handleBuyClick}>
+                                &#x1F6D2; BUY NOW
+                              </button>
+                            )
+                            }
+
+
+                            <button className="product-slider__fav js-fav">&#x2713; Assured</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="product-slider__item swiper-slide" data-target="img2">
+                      <div className="product-slider__card">
+                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405222/starwars/item-2-bg.webp" alt="star wars" className="product-slider__cover" />
+                        <div className="product-slider__content">
+                          <span className="product-slider__price" style={{ textAlign: 'center' }}>Description</span>
+                          <div className="product-ctr">
+                            <div className="product-labels">
+                              <div className="product-labels__title" style={{ textAlign: 'center' }}>{formattedDescription}</div>
+                            </div>
+
+                          </div>
+
+                          <div className="product-slider__bottom">
+                            {ItIsSeller ? (
+                              <div></div>
+                            ) : (
+                              <button className="product-slider__cart" onClick={handleBuyClick}>
+                                &#x1F6D2; BUY NOW
+                              </button>
+                            )
+                            }
+
+                            {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {video &&
+                      <div className="product-slider__item swiper-slide" data-target="video">
+                        <div className="product-slider__card">
+                          <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405215/starwars/item-3-bg.webp" alt="star wars" className="product-slider__cover" />
+                          <div className="product-slider__content">
+
+                            <div className="product-slider__bottom">
+
+                              {ItIsSeller ? (
+                                <div></div>
+                              ) : (
+                                <button className="product-slider__cart" onClick={handleBuyClick}>
+                                  &#x1F6D2; BUY NOW
+                                </button>
+                              )
+                              }
+
+                              {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                    {count > 3 &&
+                      <div className="product-slider__item swiper-slide" data-target="img3">
+                        <div className="product-slider__card">
+                          <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405215/starwars/item-3-bg.webp" alt="star wars" className="product-slider__cover" />
+                          <div className="product-slider__content">
+
+
+                            <div className="product-slider__bottom">
+                              {ItIsSeller ? (
+                                <div></div>
+                              ) : (
+                                <button className="product-slider__cart" onClick={handleBuyClick}>
+                                  &#x1F6D2; BUY NOW
+                                </button>
+                              )
+                              }
+
+
+                              {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                    {count > 4 &&
+                      <div className="product-slider__item swiper-slide" data-target="img4">
+                        <div className="product-slider__card">
+                          <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405215/starwars/item-3-bg.webp" alt="star wars" className="product-slider__cover" />
+                          <div className="product-slider__content">
+
+
+                            <div className="product-slider__bottom">
+
+                              {ItIsSeller ? (
+                                <div></div>
+                              ) : (
+                                <button className="product-slider__cart" onClick={handleBuyClick}>
+                                  &#x1F6D2; BUY NOW
+                                </button>
+                              )
+                              }
+
+
+                              {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+
+
+
                   </div>
                 </div>
-                {video &&
-                  <div className="product-slider__item swiper-slide" data-target="video">
-                    <div className="product-slider__card">
-                      <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405215/starwars/item-3-bg.webp" alt="star wars" className="product-slider__cover" />
-                      <div className="product-slider__content">
-
-                        <div className="product-slider__bottom">
-
-                        {ItIsSeller? (
-                          <div></div>
-                          ): (
-                            <button className="product-slider__cart" onClick={handleBuyClick}>
-                          &#x1F6D2; BUY NOW
-                        </button>
-                        )
-                        }
-
-                          {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                }
-                {count > 3 &&
-                  <div className="product-slider__item swiper-slide" data-target="img3">
-                    <div className="product-slider__card">
-                      <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405215/starwars/item-3-bg.webp" alt="star wars" className="product-slider__cover" />
-                      <div className="product-slider__content">
-
-
-                        <div className="product-slider__bottom">
-                        {ItIsSeller? (
-                          <div></div>
-                          ): (
-                            <button className="product-slider__cart" onClick={handleBuyClick}>
-                          &#x1F6D2; BUY NOW
-                        </button>
-                        )
-                        }
-
-
-                          {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                }
-                {count > 4 &&
-                  <div className="product-slider__item swiper-slide" data-target="img4">
-                    <div className="product-slider__card">
-                      <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1536405215/starwars/item-3-bg.webp" alt="star wars" className="product-slider__cover" />
-                      <div className="product-slider__content">
-
-
-                        <div className="product-slider__bottom">
-
-                        {ItIsSeller? (
-                          <div></div>
-                          ): (
-                            <button className="product-slider__cart" onClick={handleBuyClick}>
-                          &#x1F6D2; BUY NOW
-                        </button>
-                        )
-                        }
-
-
-                          {/* <button className="product-slider__fav js-fav"><span className="heart"></span> ADD TO WISHLIST</button> */}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                }
-
-
 
               </div>
+
+
+
+
             </div>
+          </>
+          }
+          <svg className="hidden" hidden>
+            <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+              <path d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.088-0.704-1.696-0.704s-1.216 0.224-1.696 0.704l-9.824 9.824c-0.448 0.448-0.704 1.056-0.704 1.696s0.224 1.248 0.704 1.696z"></path>
+            </symbol>
+            <symbol id="icon-arrow-right" viewBox="0 0 32 32">
+              <path d="M31.296 14.336l-9.888-9.888c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.824 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.856 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.088 0.704 1.696 0.704s1.216-0.224 1.696-0.704l9.824-9.824c0.448-0.448 0.704-1.056 0.704-1.696s-0.224-1.248-0.704-1.664z"></path>
+            </symbol>
+          </svg>
+          <Script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></Script>
 
-          </div>
-
-
-
-
-        </div>
-      </>
-      }
-      <svg className="hidden" hidden>
-        <symbol id="icon-arrow-left" viewBox="0 0 32 32">
-          <path d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.088-0.704-1.696-0.704s-1.216 0.224-1.696 0.704l-9.824 9.824c-0.448 0.448-0.704 1.056-0.704 1.696s0.224 1.248 0.704 1.696z"></path>
-        </symbol>
-        <symbol id="icon-arrow-right" viewBox="0 0 32 32">
-          <path d="M31.296 14.336l-9.888-9.888c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.824 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.856 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.088 0.704 1.696 0.704s1.216-0.224 1.696-0.704l9.824-9.824c0.448-0.448 0.704-1.056 0.704-1.696s-0.224-1.248-0.704-1.664z"></path>
-        </symbol>
-      </svg>
-      <Script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></Script>
-
-      <Script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></Script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
-                    </>
-                          )}
+          <Script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></Script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+        </>
+      )}
       {/* <Script  src="./swipe.js"></Script> */}
-      
+
     </>
-    
+
   )
 }
 
