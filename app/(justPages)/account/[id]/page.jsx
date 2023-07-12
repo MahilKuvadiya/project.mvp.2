@@ -25,65 +25,6 @@ const Page = (ctx) => {
 
   useEffect(() => {
 
-    var swiper = new Swiper('.product-slider', {
-      spaceBetween: 30,
-      observer: true,
-      observeParents: true,
-      parallax: true,
-      navigation: true,
-      effect: 'fade',
-      // initialSlide: 2,
-      loop: false,
-      modules: [Navigation],
-      navigation: {
-        nextEl: '.next',
-        prevEl: '.prev'
-      },
-      // mousewheel: {
-      //     // invert: false
-      // },
-      on: {
-        init: function () {
-          var index = this.activeIndex;
-
-          var target = $('.product-slider__item').eq(index).data('target');
-
-          console.log(target);
-
-          $('.product-img__item').removeClass('active');
-          $('.product-img__item#' + target).addClass('active');
-        }
-      }
-
-    });
-
-    swiper.on('slideChange', function () {
-      var index = this.activeIndex;
-
-      var target = $('.product-slider__item').eq(index).data('target');
-
-      console.log(target);
-
-      $('.product-img__item').removeClass('active');
-      $('.product-img__item#' + target).addClass('active');
-
-      if (swiper.isEnd) {
-        $('.prev').removeClass('disabled');
-        $('.next').addClass('disabled');
-      } else {
-        $('.next').removeClass('disabled');
-      }
-
-      if (swiper.isBeginning) {
-        $('.prev').addClass('disabled');
-      } else {
-        $('.prev').removeClass('disabled');
-      }
-    });
-
-    $(".js-fav").on("click", function () {
-      $(this).find('.heart').toggleClass("is-active");
-    });
     async function fetchAccountInfo() {
       try {
         const data = {
@@ -144,14 +85,84 @@ const Page = (ctx) => {
   const specialFeature = account?.specialFeature
 
   const [showOrder, setShowOrder] = useState(false); // State variable to control visibility
-
+  
   const handleBuyClick = () => {
     if (status === 'unauthenticated') {
       toast.error("Plaese login first.")
     } else {
       setShowOrder(true);
     }
-  };
+  }
+  useEffect(() => {
+    
+
+    if (isLoading) {
+      return; // Return early if still loading
+    }
+
+    var swiper = new Swiper('.product-slider', {
+      spaceBetween: 30,
+      observer: true,
+      observeParents: true,
+      parallax: true,
+      navigation: true,
+      effect: 'fade',
+      // initialSlide: 2,
+      loop: false,
+      modules: [Navigation],
+      navigation: {
+        nextEl: '.next',
+        prevEl: '.prev'
+      },
+      // mousewheel: {
+      //     // invert: false
+      // },
+      on: {
+        init: function () {
+          var index = this.activeIndex;
+
+          var target = $('.product-slider__item').eq(index).data('target');
+
+          console.log(target);
+
+          $('.product-img__item').removeClass('active');
+          $('.product-img__item#' + target).addClass('active');
+        }
+      }
+
+    });
+
+    swiper.on('slideChange', function () {
+      var index = this.activeIndex;
+
+      var target = $('.product-slider__item').eq(index).data('target');
+
+      console.log(target);
+
+      $('.product-img__item').removeClass('active');
+      $('.product-img__item#' + target).addClass('active');
+
+      if (swiper.isEnd) {
+        $('.prev').removeClass('disabled');
+        $('.next').addClass('disabled');
+      } else {
+        $('.next').removeClass('disabled');
+      }
+
+      if (swiper.isBeginning) {
+        $('.prev').addClass('disabled');
+      } else {
+        $('.prev').removeClass('disabled');
+      }
+    });
+
+    $(".js-fav").on("click", function () {
+      $(this).find('.heart').toggleClass("is-active");
+    });
+  
+
+},[isLoading]);
+
   const count = account?.image.length
   const desc = description
 
@@ -208,6 +219,7 @@ const Page = (ctx) => {
   }
   return (
     <>
+     <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
       {/* <button onClick={handleBuyClick}>Buy</button> */}
       {isLoading ? (
           <div className="loader"></div> // Display the loader
