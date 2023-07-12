@@ -34,10 +34,10 @@ const CreateBlog = () => {
       toast.error('Please login first.');
       router.push('/');
     }
-    // if (phoneNumber === '') {
-    //   toast.error('Complete your profile.');
-    //   router.push('/dashboard');
-    // }
+    if (phoneNumber === '') {
+      toast.error('Complete your profile.');
+      router.push('/dashboard');
+    }
 
 
   }, [anotherSession, phoneNumber]);
