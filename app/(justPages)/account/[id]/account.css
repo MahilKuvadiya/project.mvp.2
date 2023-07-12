@@ -428,7 +428,7 @@ a {
 }
 @media screen and (max-width: 576px) {
   .product-slider__content {
-    padding-top: 220px;
+    padding-top: 270px !important; 
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -727,17 +727,17 @@ a {
   
   max-height: 370px;
   object-fit: contain;
-  object-position: center;
+  object-position: center !important;
 }
 .product-img__item video {
   object-fit: contain;
-  object-position: center right;
+  object-position: center;
 }
 @media (max-width:574px){
 .product-img__item video {
   height: 170px !important;
   object-fit: contain;
-  object-position: center right;
+  object-position: center;
 }
 /* .product-img__item img {
   max-width: 282px !important;

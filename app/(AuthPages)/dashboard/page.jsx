@@ -7,6 +7,7 @@ import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import PhoneSignUp from '../../phoneSignUp';
 import './dashboard.css';
+import { Helmet } from 'react-helmet';
 
 export default function Dashboard() {
   const { data: session } = useSession();
@@ -67,6 +68,17 @@ export default function Dashboard() {
 
   return (
     <>
+    <Helmet>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKVLK12SJL"></script>
+      <script>{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LKVLK12SJL');
+      `}
+      </script>
+      </Helmet>
       <div className='container' style={{ height: '100vh' }}>
         <div className='dash'>
           <h3>Update Account</h3>

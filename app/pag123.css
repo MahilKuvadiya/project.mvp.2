@@ -83,6 +83,7 @@ p{
     border-right: 1px solid white;
      line-height: 35px; 
      width: 60%;
+     font-family: 'Times New Roman', Times, serif;
 }
 .my-img {
     width: 90%;
@@ -250,3 +251,7 @@ a{
     justify-content: flex-end !important;
     }
 }
+.white-text {
+    color: white;
+    font-family: fantasy;
+  }

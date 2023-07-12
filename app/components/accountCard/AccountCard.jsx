@@ -67,7 +67,7 @@ const AccountCard = ({ account: { title, accountName, image, gameName, id, price
                 <span className="hr-vertical1"></span>
                 <div className="product-ctr1">
                   <div className="product-labels1">
-                    <div className="product-labels__title1">DESCRIPTION</div>
+                    <div className="product-labels__title1">SPECIAL FEATURE</div>
 
                     <div className="product-labels__group1">
                       <label className="product-labels__item1">
