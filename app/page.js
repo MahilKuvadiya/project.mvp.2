@@ -227,7 +227,7 @@ export default function Accounts() {
               
             </select>
             {/* <span className={classes.dropdownArrow}></span> */}
-            <button className='btn' id='b3' onClick={accountFilter}>Sort</button>
+            <button className='btn' id='b3' onClick={accountFilter}>Filter</button>
           </div>
           {isLoading ? (
             <div className={classes.loader}></div>
